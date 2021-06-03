@@ -1,4 +1,6 @@
 {
+  "router.Test": "Test",
+  "router.JsxTreeDemo": "Jsx Tree Demo",
   "management.browser.delete.areYouSure": "Are you sure you want to delete {instanceName}?",
   "management.browser.delete.ok": "Delete",
   "management.browser.noItems": "No data",
@@ -28,6 +30,8 @@
   "header.logout.cancel": "Cancel",
   "file.download.notAllowed": "You do not have a permission to download files",
   "file.noFile": "No file",
+  "menu.Tools": "Tools",
+  "menu.JsxTree": "JSX Tree",
   "cubaReact.dataTable.clearAllFilters": "Clear filters",
   "cubaReact.dataTable.validation.requiredField": "Required field",
   "cubaReact.dataTable.validation.uuid": "Not a valid UUID",

@@ -209,14 +209,14 @@ const DatatypesTestEntityList = observer(
 registerRoute(
   `${ROUTING_PATH}/:entityId?`,
   ROUTING_PATH,
-  "datatypesTestEntityList",
+  "Datatypes Test Entity Browse",
   <DatatypesTestEntityList />,
   ENTITY_NAME,
   "DatatypesTestEntityList"
 );
 registerEntityBrowserScreen(
   ENTITY_NAME,
-  "datatypesTestEntityList",
+  "Datatypes Test Entity Browse",
   <DatatypesTestEntityList />
 );
 
