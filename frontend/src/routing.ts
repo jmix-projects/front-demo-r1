@@ -1,3 +1,5 @@
+import "./app/templates/entity-management/CustomerList";
+import "./app/templates/entity-management/CustomerEditor";
 import "./app/menu/MenuDemoScreen";
 import "./app/datatypes/composition-o2m/CompositionO2MTestEntityList";
 import "./app/datatypes/composition-o2m/CompositionO2MTestEntityEditor";

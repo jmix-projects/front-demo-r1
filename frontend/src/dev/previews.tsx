@@ -1,3 +1,5 @@
+import CustomerList from "../app/templates/entity-management/CustomerList";
+import CustomerEditor from "../app/templates/entity-management/CustomerEditor";
 import { MenuDemoScreen } from "../app/menu/MenuDemoScreen";
 import CompositionO2MTestEntityList from "../app/datatypes/composition-o2m/CompositionO2MTestEntityList";
 import CompositionO2MTestEntityEditor from "../app/datatypes/composition-o2m/CompositionO2MTestEntityEditor";
@@ -42,6 +44,14 @@ export const ComponentPreviews = () => {
 
       <ComponentPreview path="/menuDemoScreen">
         <MenuDemoScreen />
+      </ComponentPreview>
+
+      <ComponentPreview path="/CustomerEditor">
+        <CustomerEditor />
+      </ComponentPreview>
+
+      <ComponentPreview path="/CustomerList">
+        <CustomerList />
       </ComponentPreview>
     </Previews>
   );
