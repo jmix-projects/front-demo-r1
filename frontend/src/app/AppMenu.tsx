@@ -13,6 +13,12 @@ export const AppMenu = () => {
         caption={<FormattedMessage id="router.home" />}
         key={"home"}
       />
+      <MenuItem
+        screenId={"DatatypesTestEntityList"}
+        icon={<BarsOutlined />}
+        caption={<FormattedMessage id={"router.DatatypesTestEntityList"} />}
+        key={"7ef031d3-8a07-437b-bfef-7fc3800100cd"}
+      />
     </VerticalMenu>
   );
 };

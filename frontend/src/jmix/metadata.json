@@ -647,13 +647,13 @@
         {
           "name": "enumAttr",
           "type": {
-            "packageName": "java.lang",
-            "className": "String",
-            "fqn": "java.lang.String",
-            "label": "String"
+            "packageName": "io.jmix.frontdemo.entity.datatypes",
+            "className": "TestEnum",
+            "fqn": "io.jmix.frontdemo.entity.datatypes.TestEnum",
+            "label": "TestEnum"
           },
-          "mappingType": "DATATYPE",
-          "readOnly": true,
+          "mappingType": "ENUM",
+          "readOnly": false,
           "mandatory": false,
           "transient": false
         },
@@ -802,19 +802,6 @@
           "mappingType": "ASSOCIATION",
           "cardinality": "MANY_TO_ONE",
           "readOnly": false,
-          "mandatory": false,
-          "transient": false
-        },
-        {
-          "name": "readOnlyStringAttr",
-          "type": {
-            "packageName": "java.lang",
-            "className": "String",
-            "fqn": "java.lang.String",
-            "label": "String"
-          },
-          "mappingType": "DATATYPE",
-          "readOnly": true,
           "mandatory": false,
           "transient": false
         }
@@ -1757,5 +1744,24 @@
       ]
     }
   ],
-  "enums": []
+  "enums": [
+    {
+      "className": "TestEnum",
+      "fqn": "io.jmix.frontdemo.entity.datatypes.TestEnum",
+      "values": [
+        {
+          "name": "NEW_VALUE",
+          "id": "A"
+        },
+        {
+          "name": "NEW_VALUE1",
+          "id": "B"
+        },
+        {
+          "name": "NEW_VALUE2",
+          "id": "C"
+        }
+      ]
+    }
+  ]
 }

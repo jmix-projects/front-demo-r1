@@ -1,3 +1,4 @@
+import { TestEnum } from "../enums/enums";
 import { AssociationO2OTestEntity } from "./AssociationO2OTestEntity";
 import { AssociationO2MTestEntity } from "./AssociationO2MTestEntity";
 import { AssociationM2OTestEntity } from "./AssociationM2OTestEntity";
@@ -24,7 +25,7 @@ export class DatatypesTestEntity {
   localDateAttr?: any | null;
   localTimeAttr?: any | null;
   offsetTimeAttr?: any | null;
-  enumAttr?: string | null;
+  enumAttr?: TestEnum | null;
   associationO2Oattr?: AssociationO2OTestEntity | null;
   associationO2Mattr?: AssociationO2MTestEntity[] | null;
   associationM2Oattr?: AssociationM2OTestEntity | null;
@@ -35,7 +36,6 @@ export class DatatypesTestEntity {
   integerIdTestEntityAssociationM2MAttr?: IntegerIdTestEntity[] | null;
   stringIdTestEntityAssociationO2O?: StringIdTestEntity | null;
   stringIdTestEntityAssociationM2O?: StringIdTestEntity | null;
-  readOnlyStringAttr?: string | null;
 }
 export type DatatypesTestEntityViewName = "_base" | "_instance_name" | "_local";
 export type DatatypesTestEntityView<
@@ -61,7 +61,6 @@ export type DatatypesTestEntityView<
       | "offsetTimeAttr"
       | "enumAttr"
       | "name"
-      | "readOnlyStringAttr"
     >
   : V extends "_local"
   ? Pick<
@@ -84,6 +83,5 @@ export type DatatypesTestEntityView<
       | "offsetTimeAttr"
       | "enumAttr"
       | "name"
-      | "readOnlyStringAttr"
     >
   : never;
