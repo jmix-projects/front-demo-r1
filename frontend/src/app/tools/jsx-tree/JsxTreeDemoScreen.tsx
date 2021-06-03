@@ -13,6 +13,7 @@ export const JsxTreeDemoScreen = () => (
     <TernaryComponent/>
     <SwitchComponent/>
     <br/>
+    <br/>
     <Title level={3}>Mapping</Title>
     <ComponentWithMap/>
     <br/>
@@ -22,7 +23,6 @@ export const JsxTreeDemoScreen = () => (
     <br/>
     <Title level={3}>Render Function Component</Title>
     <RenderFunctionComponent/>
-
   </div>
 );
 

@@ -38,6 +38,8 @@
   "menu.Tools": "Tools",
   "menu.JsxTree": "JSX Tree",
   "menu.Datatypes": "Data Types",
+  "menu.Templates": "Templates",
+  "menu.DatatypesTestEntityList": "Entity Editor",
   "cubaReact.dataTable.clearAllFilters": "Clear filters",
   "cubaReact.dataTable.validation.requiredField": "Required field",
   "cubaReact.dataTable.validation.uuid": "Not a valid UUID",

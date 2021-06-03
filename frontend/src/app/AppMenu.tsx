@@ -38,8 +38,18 @@ export const AppMenu = () => {
         />
       </SubMenuItem>
       <SubMenuItem
+        caption={<FormattedMessage id={"menu.Templates"} />}
+        key={"7ef031d3-8a01-437b-bfef-7fc2800100cd"}
+      >
+        <MenuItem
+          screenId={"DatatypesTestEntityEdit"}
+          caption={<FormattedMessage id={"menu.DatatypesTestEntityList"} />}
+          key={"7ef031d3-8b07-437b-bfef-7fc38001w0cd"}
+        />
+      </SubMenuItem>
+      <SubMenuItem
         caption={<FormattedMessage id={"menu.Tools"} />}
-        key={"7ef031d3-8a07-437b-bfef-7fc2800100cd"}
+        key={"7ef031d3-8a07-437b-bfef-7fc4800100cd"}
       >
         <MenuItem
           screenId={"JsxTreeDemo"}

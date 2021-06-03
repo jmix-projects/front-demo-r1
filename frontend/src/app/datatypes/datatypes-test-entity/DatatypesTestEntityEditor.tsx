@@ -14,11 +14,12 @@ import {
   Spinner,
   useEntityEditor,
   EntityEditorProps,
-  registerEntityEditorScreen
+  registerEntityEditorScreen, registerRoute
 } from "@haulmont/jmix-react-ui";
 import { gql } from "@apollo/client";
 import "../../../app/App.css";
 import { DatatypesTestEntity } from "../../../jmix/entities/DatatypesTestEntity";
+import DatatypesTestEntityList from "./DatatypesTestEntityList";
 
 const ENTITY_NAME = "DatatypesTestEntity";
 const ROUTING_PATH = "/datatypesTestEntityEditor";
@@ -270,6 +271,15 @@ registerEntityEditorScreen(
   ENTITY_NAME,
   "datatypesTestEntityEditor",
   <DatatypesTestEntityEditor />
+);
+
+registerRoute(
+  `${ROUTING_PATH}`,
+  ROUTING_PATH,
+  "Datatypes Test Entity Edit",
+  <DatatypesTestEntityEditor />,
+  ENTITY_NAME,
+  "DatatypesTestEntityEdit"
 );
 
 export default DatatypesTestEntityEditor;
