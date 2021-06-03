@@ -122,9 +122,9 @@ export const ComponentWithMap: React.FC = () => {
     <div>
       {testedArr.map((item) => {
         return (
-          <span>
-                        I'am span. {item} element
-                    </span>
+          <ul>
+            I'am ul. {item} element
+          </ul>
         )
       })}
     </div>
@@ -180,8 +180,6 @@ export const RenderFunctionComponent: React.FC = () => {
     </div>
   )
 }
-
-
 
 registerRoute(
   "/tools/jsx",

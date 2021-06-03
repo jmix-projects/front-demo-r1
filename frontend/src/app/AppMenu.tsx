@@ -46,6 +46,11 @@ export const AppMenu = () => {
           caption={<FormattedMessage id={"menu.JsxTree"} />}
         />
       </SubMenuItem>
+      <MenuItem
+        screenId={"MenuDemo"}
+        caption={<FormattedMessage id={"router.MenuDemoScreen"} />}
+        key={"930a8778-0e7b-4556-a878-ea8b45fb6ea3"}
+      />
     </VerticalMenu>
   );
 };

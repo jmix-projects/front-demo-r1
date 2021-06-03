@@ -1,3 +1,4 @@
+import { MenuDemoScreen } from "../app/menu/MenuDemoScreen";
 import CompositionO2MTestEntityList from "../app/datatypes/composition-o2m/CompositionO2MTestEntityList";
 import CompositionO2MTestEntityEditor from "../app/datatypes/composition-o2m/CompositionO2MTestEntityEditor";
 import CompositionO2OTestEntityList from "../app/datatypes/composition-o2o/CompositionO2OTestEntityList";
@@ -37,6 +38,10 @@ export const ComponentPreviews = () => {
 
       <ComponentPreview path="/CompositionO2MTestEntityList">
         <CompositionO2MTestEntityList />
+      </ComponentPreview>
+
+      <ComponentPreview path="/menuDemoScreen">
+        <MenuDemoScreen />
       </ComponentPreview>
     </Previews>
   );

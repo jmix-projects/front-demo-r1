@@ -1,3 +1,4 @@
+import "./app/menu/MenuDemoScreen";
 import "./app/datatypes/composition-o2m/CompositionO2MTestEntityList";
 import "./app/datatypes/composition-o2m/CompositionO2MTestEntityEditor";
 import "./app/datatypes/composition-o2o/CompositionO2OTestEntityList";
