@@ -12,15 +12,14 @@ export const JsxTreeDemoScreen = () => (
     <ConditionalComponent5/>
     <TernaryComponent/>
     <SwitchComponent/>
-
+    <br/>
     <Title level={3}>Mapping</Title>
     <ComponentWithMap/>
-
-
+    <br/>
     <Title level={3}>JSX Elements in variables</Title>
     <JsxElementsComponent/>
     <JsxArrayComponent/>
-
+    <br/>
     <Title level={3}>Render Function Component</Title>
     <RenderFunctionComponent/>
 
