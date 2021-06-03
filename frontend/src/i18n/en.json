@@ -32,6 +32,7 @@
   "file.noFile": "No file",
   "menu.Tools": "Tools",
   "menu.JsxTree": "JSX Tree",
+  "menu.Datatypes": "Data Types",
   "cubaReact.dataTable.clearAllFilters": "Clear filters",
   "cubaReact.dataTable.validation.requiredField": "Required field",
   "cubaReact.dataTable.validation.uuid": "Not a valid UUID",

@@ -1,4 +1,3 @@
-import { Test } from "../app/datatypes/datatypes-test-entity/Test";
 import DatatypesTestEntityList from "../app/datatypes/datatypes-test-entity/DatatypesTestEntityList";
 import DatatypesTestEntityEditor from "../app/datatypes/datatypes-test-entity/DatatypesTestEntityEditor";
 import React from "react";
@@ -20,9 +19,6 @@ export const ComponentPreviews = () => {
         <JsxTreeDemoScreen />
       </ComponentPreview>
 
-      <ComponentPreview path="/test">
-        <Test />
-      </ComponentPreview>
     </Previews>
   );
 };

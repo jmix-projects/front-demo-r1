@@ -1,4 +1,3 @@
-import "./app/datatypes/datatypes-test-entity/Test";
 import "./app/tools/jsx-tree/JsxTreeDemoScreen";
 import "./app/datatypes/datatypes-test-entity/DatatypesTestEntityList";
 import "./app/datatypes/datatypes-test-entity/DatatypesTestEntityEditor";
