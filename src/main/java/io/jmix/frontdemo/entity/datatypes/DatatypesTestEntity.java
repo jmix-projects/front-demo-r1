@@ -128,8 +128,6 @@ public class DatatypesTestEntity {
     @JoinColumn(name = "STRING_ID_TEST_ENTITY_ASSOCIATION_M2O_ID")
     private StringIdTestEntity stringIdTestEntityAssociationM2O;
 
-    @Column(name = "READ_ONLY_STRING_ATTR")
-    protected String readOnlyStringAttr;
 
     public Date getTimeAttr() {
         return timeAttr;
@@ -137,10 +135,6 @@ public class DatatypesTestEntity {
 
     public void setTimeAttr(Date timeAttr) {
         this.timeAttr = timeAttr;
-    }
-
-    public String getReadOnlyStringAttr() {
-        return readOnlyStringAttr;
     }
 
     public StringIdTestEntity getStringIdTestEntityAssociationO2O() {
@@ -327,6 +321,14 @@ public class DatatypesTestEntity {
 //    public void setByteArrayAttr(byte[] byteArrayAttr) {
 //        this.byteArrayAttr = byteArrayAttr;
 //    }
+
+    public void setEnumAttr(TestEnum enumAttr) {
+        this.enumAttr = enumAttr == null ? null : enumAttr.getId();
+    }
+
+    public TestEnum getEnumAttr() {
+        return enumAttr == null ? null : TestEnum.fromId(enumAttr);
+    }
 
     public Boolean getBooleanAttr() {
         return booleanAttr;
