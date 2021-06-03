@@ -1,9 +1,12 @@
 import React from "react";
 import {registerRoute} from "@haulmont/jmix-react-ui";
 import Title from "antd/lib/typography/Title";
+import {Alert} from "antd";
 
 export const JsxTreeDemoScreen = () => (
   <div>
+    <Alert message={<>OpenJsxTreeDemoScreen.tsx in Jmix Studio</>}/>
+    <br/>
     <Title level={3}>Conditionals</Title>
     <ConditionalComponent1/>
     <ConditionalComponent2/>
@@ -115,18 +118,24 @@ export const SwitchComponent: React.FC = () => {
 
 export const ComponentWithMap: React.FC = () => {
 
-  const testedArr: number[] = [1,2,3,4,5,6,7,8,9,10]
+  const topArr: number[] = [1,2,3,4,5]
+  const subArr = [1,2,3]
 
   return (
-    <div>
-      {testedArr.map((item) => {
+    <ul>
+      {topArr.map((item) => {
         return (
-          <ul>
-            I'am ul. {item} element
-          </ul>
+          <li>
+            I'am li. {item} element
+            <ul>
+              {subArr.map(subItem =>
+                <li>I'm sub li. {subItem} element</li>
+              )}
+            </ul>
+          </li>
         )
       })}
-    </div>
+    </ul>
   )
 }
 
