@@ -1,3 +1,5 @@
+import "./app/datatypes/composition-o2o/CompositionO2OTestEntityList";
+import "./app/datatypes/composition-o2o/CompositionO2OTestEntityEditor";
 import "./app/tools/jsx-tree/JsxTreeDemoScreen";
 import "./app/datatypes/datatypes-test-entity/DatatypesTestEntityList";
 import "./app/datatypes/datatypes-test-entity/DatatypesTestEntityEditor";
