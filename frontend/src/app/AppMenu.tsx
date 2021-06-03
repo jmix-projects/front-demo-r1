@@ -24,11 +24,17 @@ export const AppMenu = () => {
         />
         <MenuItem
           screenId={"CompositionO2OTestEntityList"}
-          icon={<BarsOutlined />}
           caption={
             <FormattedMessage id={"router.CompositionO2OTestEntityList"} />
           }
           key={"62518b6c-54c7-4017-8b89-9ce6480a0cfc"}
+        />
+        <MenuItem
+          screenId={"CompositionO2MTestEntityList"}
+          caption={
+            <FormattedMessage id={"router.CompositionO2MTestEntityList"} />
+          }
+          key={"aae139b5-829e-4c05-8119-bcb9977842e6"}
         />
       </SubMenuItem>
       <SubMenuItem

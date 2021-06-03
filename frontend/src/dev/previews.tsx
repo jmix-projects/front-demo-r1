@@ -1,3 +1,5 @@
+import CompositionO2MTestEntityList from "../app/datatypes/composition-o2m/CompositionO2MTestEntityList";
+import CompositionO2MTestEntityEditor from "../app/datatypes/composition-o2m/CompositionO2MTestEntityEditor";
 import CompositionO2OTestEntityList from "../app/datatypes/composition-o2o/CompositionO2OTestEntityList";
 import CompositionO2OTestEntityEditor from "../app/datatypes/composition-o2o/CompositionO2OTestEntityEditor";
 import DatatypesTestEntityList from "../app/datatypes/datatypes-test-entity/DatatypesTestEntityList";
@@ -27,6 +29,14 @@ export const ComponentPreviews = () => {
 
       <ComponentPreview path="/CompositionO2OTestEntityList">
         <CompositionO2OTestEntityList />
+      </ComponentPreview>
+
+      <ComponentPreview path="/CompositionO2MTestEntityEditor">
+        <CompositionO2MTestEntityEditor />
+      </ComponentPreview>
+
+      <ComponentPreview path="/CompositionO2MTestEntityList">
+        <CompositionO2MTestEntityList />
       </ComponentPreview>
     </Previews>
   );
