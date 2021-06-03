@@ -38,17 +38,7 @@ const COMPOSITIONO2OTESTENTITY_LIST = gql`
       id
       _instanceName
       name
-      nestedComposition {
-        id
-        _instanceName
-        name
-      }
       quantity
-    }
-
-    DeeplyNestedTestEntityList {
-      id
-      _instanceName
     }
   }
 `;
@@ -171,7 +161,7 @@ const CompositionO2OTestEntityList = observer(
         error={error}
         enableFiltersOnColumns={entityList != null ? [] : undefined}
         enableSortingOnColumns={entityList != null ? [] : undefined}
-        columnDefinitions={["name", "nestedComposition", "quantity"]}
+        columnDefinitions={["name", "quantity"]}
         onRowSelectionChange={handleSelectionChange}
         onFilterChange={handleFilterChange}
         onSortOrderChange={handleSortOrderChange}

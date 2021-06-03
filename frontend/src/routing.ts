@@ -1,10 +1,11 @@
+import "./app/datatypes/deeply-nested-test-entity/DeeplyNestedTestEntityEdit";
+import "./app/datatypes/composition-o2o/CompositionO2OTestEntityList";
+import "./app/datatypes/composition-o2o/CompositionO2OTestEntityEditor";
 import "./app/templates/entity-management/CustomerList";
 import "./app/templates/entity-management/CustomerEditor";
 import "./app/menu/MenuDemoScreen";
 import "./app/datatypes/composition-o2m/CompositionO2MTestEntityList";
 import "./app/datatypes/composition-o2m/CompositionO2MTestEntityEditor";
-import "./app/datatypes/composition-o2o/CompositionO2OTestEntityList";
-import "./app/datatypes/composition-o2o/CompositionO2OTestEntityEditor";
 import "./app/tools/jsx-tree/JsxTreeDemoScreen";
 import "./app/datatypes/datatypes-test-entity/DatatypesTestEntityList";
 import "./app/datatypes/datatypes-test-entity/DatatypesTestEntityEditor";

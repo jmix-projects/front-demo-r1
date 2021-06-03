@@ -18,41 +18,35 @@ import {
 } from "@haulmont/jmix-react-ui";
 import { gql } from "@apollo/client";
 import "../../../app/App.css";
-import { CompositionO2OTestEntity } from "../../../jmix/entities/CompositionO2OTestEntity";
+import { DeeplyNestedTestEntity } from "../../../jmix/entities/DeeplyNestedTestEntity";
 
-const ENTITY_NAME = "CompositionO2OTestEntity";
-const ROUTING_PATH = "/compositionO2OTestEntityEditor";
+const ENTITY_NAME = "DeeplyNestedTestEntity";
+const ROUTING_PATH = "/deeplyNestedTestEntityEdit";
 
-const LOAD_COMPOSITIONO2OTESTENTITY = gql`
-  query CompositionO2OTestEntityById($id: String = "", $loadItem: Boolean!) {
-    CompositionO2OTestEntityById(id: $id) @include(if: $loadItem) {
+const LOAD_DEEPLYNESTEDTESTENTITY = gql`
+  query DeeplyNestedTestEntityById($id: String = "", $loadItem: Boolean!) {
+    DeeplyNestedTestEntityById(id: $id) @include(if: $loadItem) {
       id
       _instanceName
       name
-      nestedComposition {
-        id
-        _instanceName
-        name
-      }
-      quantity
     }
   }
 `;
 
-const UPSERT_COMPOSITIONO2OTESTENTITY = gql`
-  mutation Upsert_CompositionO2OTestEntity(
-    $compositionO2OTestEntity: inp_CompositionO2OTestEntity!
+const UPSERT_DEEPLYNESTEDTESTENTITY = gql`
+  mutation Upsert_DeeplyNestedTestEntity(
+    $deeplyNestedTestEntity: inp_DeeplyNestedTestEntity!
   ) {
-    upsert_CompositionO2OTestEntity(
-      compositionO2OTestEntity: $compositionO2OTestEntity
+    upsert_DeeplyNestedTestEntity(
+      deeplyNestedTestEntity: $deeplyNestedTestEntity
     ) {
       id
     }
   }
 `;
 
-const CompositionO2OTestEntityEditor = observer(
-  (props: EntityEditorProps<CompositionO2OTestEntity>) => {
+const DeeplyNestedTestEntityEdit = observer(
+  (props: EntityEditorProps<DeeplyNestedTestEntity>) => {
     const {
       onCommit,
       entityInstance,
@@ -70,9 +64,9 @@ const CompositionO2OTestEntityEditor = observer(
       handleSubmit,
       handleSubmitFailed,
       handleCancelBtnClick
-    } = useEntityEditor<CompositionO2OTestEntity>({
-      loadQuery: LOAD_COMPOSITIONO2OTESTENTITY,
-      upsertMutation: UPSERT_COMPOSITIONO2OTESTENTITY,
+    } = useEntityEditor<DeeplyNestedTestEntity>({
+      loadQuery: LOAD_DEEPLYNESTEDTESTENTITY,
+      upsertMutation: UPSERT_DEEPLYNESTEDTESTENTITY,
       entityName: ENTITY_NAME,
       routingPath: ROUTING_PATH,
       onCommit,
@@ -107,22 +101,6 @@ const CompositionO2OTestEntityEditor = observer(
             }}
           />
 
-          <Field
-            entityName={ENTITY_NAME}
-            propertyName="nestedComposition"
-            formItemProps={{
-              style: { marginBottom: "12px" }
-            }}
-          />
-
-          <Field
-            entityName={ENTITY_NAME}
-            propertyName="quantity"
-            formItemProps={{
-              style: { marginBottom: "12px" }
-            }}
-          />
-
           <GlobalErrorsAlert serverValidationErrors={serverValidationErrors} />
 
           <Form.Item style={{ textAlign: "center" }}>
@@ -146,8 +124,8 @@ const CompositionO2OTestEntityEditor = observer(
 
 registerEntityEditorScreen(
   ENTITY_NAME,
-  "Composition O2O Editor",
-  <CompositionO2OTestEntityEditor />
+  "deeplyNestedTestEntityEdit",
+  <DeeplyNestedTestEntityEdit />
 );
 
-export default CompositionO2OTestEntityEditor;
+export default DeeplyNestedTestEntityEdit;

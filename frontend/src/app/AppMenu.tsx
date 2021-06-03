@@ -48,7 +48,7 @@ export const AppMenu = () => {
         />
         <MenuItem
           screenId={"CustomerList"}
-          caption={<FormattedMessage id={"menu.EntityManagement"}/>}
+          caption={<FormattedMessage id={"menu.EntityManagement"} />}
           key={"38f79e27-d3fb-4558-845d-1c00e9d5eb18"}
         />
       </SubMenuItem>
