@@ -1,12 +1,11 @@
 import React from "react";
-import { HorizontalMenu, MenuItem, SubMenuItem } from "@haulmont/jmix-react-ui";
-import { BarsOutlined, HomeOutlined } from "@ant-design/icons";
-import { FormattedMessage } from "react-intl";
+import {HorizontalMenu, MenuItem, SubMenuItem} from "@haulmont/jmix-react-ui";
+import {BarsOutlined, HomeOutlined} from "@ant-design/icons";
 
 export const DemoMenuHorizontal = () => {
   return (
     <HorizontalMenu>
-      <MenuItem caption={<FormattedMessage id="router.home" />}
+      <MenuItem caption={"Home"}
                 icon={ <HomeOutlined />}
                 key={'horizontal-home'}>
       </MenuItem>
@@ -48,9 +47,13 @@ export const DemoMenuHorizontal = () => {
       </SubMenuItem>
 
 
-      <MenuItem caption={"TV"}
+      <MenuItem caption={"User action"}
                 icon={<BarsOutlined />}
-                key={'horizontal-tv'}/>
+                key={'horizontal-tv'}
+                onClick={() => {
+                  alert("asd")
+                }}
+                />
 
       <MenuItem caption={"Computers"}
                 icon={<BarsOutlined />}
