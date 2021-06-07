@@ -51,9 +51,8 @@ export const DemoMenuHorizontal = () => {
                 icon={<BarsOutlined />}
                 key={'horizontal-tv'}
                 onClick={() => {
-                  alert("asd")
-                }}
-                />
+                  alert("User Action")
+                }}/>
 
       <MenuItem caption={"Computers"}
                 icon={<BarsOutlined />}
