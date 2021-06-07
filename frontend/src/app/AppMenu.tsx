@@ -37,6 +37,13 @@ export const AppMenu = () => {
           key={"aae139b5-829e-4c05-8119-bcb9977842e6"}
         />
       </SubMenuItem>
+      <SubMenuItem caption={"Components"}>
+        <MenuItem
+          screenId={"VisualComponentsDemo"}
+          caption={"Visual Components"}
+          key={"de2945b3-7666-4adb-b8c9-q9d30e4ce4cb"}
+        />
+      </SubMenuItem>
       <SubMenuItem
         caption={<FormattedMessage id={"menu.Templates"} />}
         key={"7ef031d3-8a01-437b-bfef-7fc2800100cd"}

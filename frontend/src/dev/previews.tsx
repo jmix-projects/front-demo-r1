@@ -1,3 +1,4 @@
+import { VisualComponentsDemoScreen } from "../app/components-visual/VisualComponentsDemoScreen";
 import DeeplyNestedTestEntityEdit from "../app/datatypes/deeply-nested-test-entity/DeeplyNestedTestEntityEdit";
 import CompositionO2OTestEntityList from "../app/datatypes/composition-o2o/CompositionO2OTestEntityList";
 import CompositionO2OTestEntityEditor from "../app/datatypes/composition-o2o/CompositionO2OTestEntityEditor";
@@ -57,6 +58,10 @@ export const ComponentPreviews = () => {
 
       <ComponentPreview path="/DeeplyNestedTestEntityEdit">
         <DeeplyNestedTestEntityEdit />
+      </ComponentPreview>
+
+      <ComponentPreview path="/visualComponentsDemoScreen">
+        <VisualComponentsDemoScreen />
       </ComponentPreview>
     </Previews>
   );
