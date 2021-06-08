@@ -20,6 +20,19 @@
           </option>
         </ModuleSettings>
       </entry>
+      <entry key="frontdemo.main">
+        <ModuleSettings>
+          <option name="dataStoreOptions">
+            <map>
+              <entry key="main">
+                <value>
+                  <DataStoreSettings />
+                </value>
+              </entry>
+            </map>
+          </option>
+        </ModuleSettings>
+      </entry>
     </moduleSettings>
   </component>
   <component name="JmixPluginProjectSettings">
