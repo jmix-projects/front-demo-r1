@@ -17,7 +17,7 @@ export const DemoMenuVertical = () => {
                     onOpenChange={openKeys => setOpenedMenuKeys(openKeys)}
                     onSelect={info => setSelectedMenuKeys(info.selectedKeys)}
       >
-        <MenuItem caption={<FormattedMessage id="router.home" />}
+        <MenuItem caption={"router.home"}
                   icon={ <HomeOutlined />}
                   key={'horizontal-home'}>
         </MenuItem>
