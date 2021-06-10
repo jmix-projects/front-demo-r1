@@ -6,8 +6,11 @@ export const TimerComponentDemo = () => {
 
   const [count, setCount] = useState(0);
 
-  const {start, stop} = useTimer(3000, () => {
-    alert("Timer tick")
+
+  const {start, stop} = useTimer(1000, () => {
+    setCount((count) => {
+      return ++count
+    })
   }, false, true);
 
   return (
@@ -18,6 +21,7 @@ export const TimerComponentDemo = () => {
       <Button onClick={stop}>
         Stop timer
       </Button>
+      {count}
     </Space>
   )
 }
