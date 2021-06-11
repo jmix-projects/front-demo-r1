@@ -1,10 +1,10 @@
 package io.jmix.frontdemo.screen.login;
 
-import io.jmix.core.CoreProperties;
 import io.jmix.core.MessageTools;
 import io.jmix.core.Messages;
 import io.jmix.securityui.authentication.AuthDetails;
-import io.jmix.securityui.authentication.LoginScreenAuthenticationSupport;
+import io.jmix.securityui.authentication.LoginScreenSupport;
+import io.jmix.ui.JmixApp;
 import io.jmix.ui.Notifications;
 import io.jmix.ui.action.Action;
 import io.jmix.ui.component.CheckBox;
@@ -44,15 +44,13 @@ public class LoginScreen extends Screen {
 
     @Autowired
     private Messages messages;
-
+    @Autowired
+    private JmixApp jmixApp;
     @Autowired
     private MessageTools messageTools;
 
     @Autowired
-    private LoginScreenAuthenticationSupport authenticationSupport;
-
-    @Autowired
-    private CoreProperties coreProperties;
+    private LoginScreenSupport authenticationSupport;
 
     @Autowired
     private UiLoginProperties loginProperties;
@@ -66,7 +64,7 @@ public class LoginScreen extends Screen {
 
     private void initLocalesField() {
         localesField.setOptionsMap(messageTools.getAvailableLocalesMap());
-        localesField.setValue(coreProperties.getAvailableLocales().get(0));
+        localesField.setValue(jmixApp.getLocale());
     }
 
     private void initDefaultCredentials() {
