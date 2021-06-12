@@ -54,15 +54,17 @@ export const AppMenu = () => {
           caption={"menu.EntityManagement"}
           key={"38f79e27-d3fb-4558-845d-1c00e9d5eb18"}
         />
+        <MenuItem
+          screenId={"CustomerMasterDetail"}
+          caption={"menu.CustomerMasterDetail"}
+          key={"a3d62638-e75c-4f7a-be2e-261c79071dc0"}
+        />
       </SubMenuItem>
       <SubMenuItem
         caption={"menu.Tools"}
         key={"7ef031d3-8a07-437b-bfef-7fc4800100cd"}
       >
-        <MenuItem
-          screenId={"JsxTreeDemo"}
-          caption={"menu.JsxTree"}
-        />
+        <MenuItem screenId={"JsxTreeDemo"} caption={"menu.JsxTree"} />
       </SubMenuItem>
       <MenuItem
         screenId={"MenuDemo"}

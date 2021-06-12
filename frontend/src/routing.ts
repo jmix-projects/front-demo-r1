@@ -1,3 +1,4 @@
+import "./app/templates/master-detail/CustomerMasterDetail";
 import "./app/components-conditional/ConditionalComponentsDemoScreen";
 import "./app/components-visual/VisualComponentsDemoScreen";
 import "./app/datatypes/deeply-nested-test-entity/DeeplyNestedTestEntityEdit";
