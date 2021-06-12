@@ -1,20 +1,26 @@
 import React, {useState} from "react";
 import {useTimer} from "@haulmont/jmix-react-core";
-import {Button, Space} from "antd";
+import {Button, Checkbox, Space} from "antd";
 
 export const TimerComponentDemo = () => {
 
   const [count, setCount] = useState(0);
+  const [repeating, setRepeating] = useState(false);
 
-
-  const {start, stop} = useTimer(1000, () => {
-    setCount((count) => {
-      return ++count
-    })
-  }, false, true);
+  const {start, stop} = useTimer({
+    callback: () => {
+      setCount((count) => {
+        return ++count
+      })},
+    delay: 1000,
+    repeating
+  });
 
   return (
     <Space direction={"horizontal"}>
+      <Checkbox onChange={(e) => {setRepeating(e.target.checked)}}>
+        Repeating
+      </Checkbox>
       <Button onClick={start}>
         Start timer
       </Button>
