@@ -69,6 +69,11 @@ export const AppMenu = () => {
           caption={"menu.EntityCards"}
           key={"a004b701-6412-45bd-95b5-9c5298295d6b"}
         />
+        <MenuItem
+          screenId={"CustomerCardsGrid"}
+          caption={"menu.EntityCardsGrid"}
+          key={"2b9f95cd-011f-4341-9631-6d07f95c3235"}
+        />
       </SubMenuItem>
       <SubMenuItem
         caption={"menu.Tools"}
