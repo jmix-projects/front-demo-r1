@@ -1,4 +1,5 @@
 {
+  "menu.StructureDemo": "Structure Demo",
   "menu.EntityCardsGrid": "Entity Cards Grid",
   "menu.EntityCards": "Entity Cards",
   "masterDetail.entityUnselected": "Select an entity for editing",
