@@ -1,4 +1,5 @@
 {
+  "menu.EntityCards": "Entity Cards",
   "masterDetail.entityUnselected": "Select an entity for editing",
   "masterDetail.create.ifEntitySelected": "Are you sure you don't want to save the entity?",
   "menu.CustomerMasterDetail": "Master Detail",
@@ -14,6 +15,8 @@
   "router.VisualComponentsDemoScreen": "Visual Components Demo Screen",
   "router.DeeplyNestedTestEntityEdit": "Deeply Nested Test Entity Edit",
   "menu.EntityManagement": "Entity Management",
+  "menu.TemplatesEntityList": "Entity Browser",
+  "menu.TemplatesEntityEdit": "Entity Editor",
   "router.CustomerEditor": "Customer Editor",
   "router.MenuDemoScreen": "Menu",
   "router.CompositionO2MTestEntityList": "Composition O2M",

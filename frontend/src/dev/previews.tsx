@@ -1,4 +1,5 @@
 import { VisualComponentsDemoScreen } from "../app/components-visual/VisualComponentsDemoScreen";
+import { CustomerCards } from "../app/templates/entity-cards/CustomerCards";
 import CustomerMasterDetail from "../app/templates/master-detail/CustomerMasterDetail";
 import { ConditionalComponentsDemoScreen } from "../app/components-conditional/ConditionalComponentsDemoScreen";
 import DeeplyNestedTestEntityEdit from "../app/datatypes/deeply-nested-test-entity/DeeplyNestedTestEntityEdit";
@@ -63,6 +64,9 @@ export const ComponentPreviews = () => {
       </ComponentPreview>
       <ComponentPreview path="/CustomerMasterDetail">
         <CustomerMasterDetail />
+      </ComponentPreview>
+      <ComponentPreview path="/customerCards">
+        <CustomerCards />
       </ComponentPreview>
     </Previews>
   );

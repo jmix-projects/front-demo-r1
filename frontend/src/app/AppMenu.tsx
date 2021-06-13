@@ -45,8 +45,13 @@ export const AppMenu = () => {
         key={"7ef031d3-8a01-437b-bfef-7fc2800100cd"}
       >
         <MenuItem
+          screenId={"DatatypesTestEntityList"}
+          caption={"menu.TemplatesEntityList"}
+          key={"1ef031d3-8b07-437b-bfef-7fc38001w0cd"}
+        />
+        <MenuItem
           screenId={"DatatypesTestEntityEdit"}
-          caption={"menu.DatatypesTestEntityList"}
+          caption={"menu.TemplatesEntityEdit"}
           key={"7ef031d3-8b07-437b-bfef-7fc38001w0cd"}
         />
         <MenuItem
@@ -58,6 +63,11 @@ export const AppMenu = () => {
           screenId={"CustomerMasterDetail"}
           caption={"menu.CustomerMasterDetail"}
           key={"a3d62638-e75c-4f7a-be2e-261c79071dc0"}
+        />
+        <MenuItem
+          screenId={"CustomerCards"}
+          caption={"menu.EntityCards"}
+          key={"a004b701-6412-45bd-95b5-9c5298295d6b"}
         />
       </SubMenuItem>
       <SubMenuItem
