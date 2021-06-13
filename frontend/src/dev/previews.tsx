@@ -1,4 +1,5 @@
 import { VisualComponentsDemoScreen } from "../app/components-visual/VisualComponentsDemoScreen";
+import { DataComponentsDemo } from "../app/components-data/DataComponentsDemo";
 import { CustomerCards } from "../app/templates/entity-cards/CustomerCards";
 import CustomerMasterDetail from "../app/templates/master-detail/CustomerMasterDetail";
 import { ConditionalComponentsDemoScreen } from "../app/components-conditional/ConditionalComponentsDemoScreen";
@@ -67,6 +68,9 @@ export const ComponentPreviews = () => {
       </ComponentPreview>
       <ComponentPreview path="/customerCards">
         <CustomerCards />
+      </ComponentPreview>
+      <ComponentPreview path="/dataComponentsDemo">
+        <DataComponentsDemo />
       </ComponentPreview>
     </Previews>
   );
