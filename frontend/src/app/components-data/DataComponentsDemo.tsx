@@ -1,36 +1,23 @@
 import React from "react";
-import {useMetadata} from "@haulmont/jmix-react-core";
+import {useEntityListData, useMetadata} from "@haulmont/jmix-react-core";
 import {useEntityList} from "@haulmont/jmix-react-ui";
 import {gql} from "@apollo/client";
+import {Product} from "../../jmix/entities/Product";
+import {Order} from "../../jmix/entities/Order_";
+import {UseEntityListDataDemo} from "./UseEntityListDataDemo";
+import {Card} from "antd";
+import Text from "antd/es/typography/Text";
 
 export const DataComponentsDemo = () => {
-
-  const metadata = useMetadata();
-
-  useEntityList({
-    listQuery: gql`
-        query {
-          CustomerList {
-            id,
-            email,
-            name
-          }
-        }
-    `,
-    routingPath: '/data-components',
-    entityName: 'Customer',
-    deleteMutation: gql`
-      mutation($id: String!) {
-        delete_Customer(id: $id)
-      }
-    `
-  })
-
-
-
   return (
     <div>
-      {JSON.stringify(metadata)}
+      <Card title={
+        <>
+          <Text code={true}>useEntityListData()</Text> demo
+        </>
+      }>
+        <UseEntityListDataDemo/>
+      </Card>
     </div>
   )
 };
