@@ -43,6 +43,11 @@ export const AppMenu = () => {
           caption={"menu.DataComponentsDemo"}
           key={"ed79675a-1e97-418d-9da7-d776affbea52"}
         />
+        <MenuItem
+          screenId={"ConditionalComponentsDemoScreen"}
+          caption={"menu.ConditionalComponentsDemoScreen"}
+          key={"ed79675a-1e17-418d-9da7-d776affbea52"}
+        />
       </SubMenuItem>
       <SubMenuItem
         caption={"menu.Templates"}

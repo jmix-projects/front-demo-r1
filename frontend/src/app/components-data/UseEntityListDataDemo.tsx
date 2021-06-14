@@ -30,10 +30,7 @@ export const UseEntityListDataDemo = () => {
         }
       }
     `,
-    listQueryOptions: {
-      variables: {}
-    },
-    entityName: 'Order_',
+    entityName: 'Order_'
   });
 
   if (loading) {
