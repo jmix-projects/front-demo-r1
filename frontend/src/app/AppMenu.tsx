@@ -1,8 +1,7 @@
 import React from "react";
-import { VerticalMenu, MenuItem, SubMenuItem } from "@haulmont/jmix-react-ui";
-import { BarsOutlined, HomeOutlined } from "@ant-design/icons";
-import { tabs } from "@haulmont/jmix-react-core";
-import { FormattedMessage } from "react-intl";
+import {MenuItem, SubMenuItem, VerticalMenu} from "@haulmont/jmix-react-ui";
+import {HomeOutlined} from "@ant-design/icons";
+import {tabs} from "@haulmont/jmix-react-core";
 
 export const AppMenu = () => {
   return (
@@ -38,6 +37,11 @@ export const AppMenu = () => {
           screenId={"VisualComponentsDemo"}
           caption={"Visual Components"}
           key={"de2945b3-7666-4adb-b8c9-q9d30e4ce4cb"}
+        />
+        <MenuItem
+          screenId={"DataComponentsDemo"}
+          caption={"menu.DataComponentsDemo"}
+          key={"ed79675a-1e97-418d-9da7-d776affbea52"}
         />
       </SubMenuItem>
       <SubMenuItem
