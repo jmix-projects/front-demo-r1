@@ -1,3 +1,4 @@
+import "./app/templates/entity-list/CustomerList";
 import "./app/components-data/DataComponentsDemo";
 import "./app/templates/structure/StructureDemo";
 import "./app/templates/entity-cards-grid/CustomerCardsGrid";
