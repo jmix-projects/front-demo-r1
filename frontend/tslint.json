@@ -19,7 +19,7 @@
     "interface-name": false,
     "member-access": false,
     "object-literal-sort-keys": false,
-    "jsx-no-lambda": false,
+    "jsx-no-lambda": true,
     "max-classes-per-file": false,
     "member-ordering": false,
     "variable-name": false,

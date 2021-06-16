@@ -20,6 +20,8 @@ import { Previews, ComponentPreview } from "@haulmont/react-ide-toolbox";
 import { JsxTreeDemoScreen } from "../app/tools/jsx-tree/JsxTreeDemoScreen";
 import { TimerComponentDemo } from "../app/components-conditional/TimerComponentDemo";
 import { UseEntityListDataDemo } from "../app/components-data/UseEntityListDataDemo";
+import {EntityPermAccessControlDemo} from "../app/components-conditional/EntityPermAccessControlDemo";
+import {AttrPermAccessControlDemo} from "../app/components-conditional/AttrPermAccessControlDemo";
 
 export const ComponentPreviews = () => {
   return (
@@ -83,6 +85,14 @@ export const ComponentPreviews = () => {
       </ComponentPreview>
       <ComponentPreview path="/blankTemplateDemo">
         <BlankTemplateDemo />
+      </ComponentPreview>
+      <ComponentPreview
+        path="/PermissionComponentsDemo">
+        <EntityPermAccessControlDemo/>
+      </ComponentPreview>
+      <ComponentPreview
+        path="/AttrPermAccessControlDemo">
+        <AttrPermAccessControlDemo/>
       </ComponentPreview>
     </Previews>
   );
