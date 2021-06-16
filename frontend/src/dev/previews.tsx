@@ -1,4 +1,5 @@
 import { VisualComponentsDemoScreen } from "../app/components-visual/VisualComponentsDemoScreen";
+import { BlankTemplateDemo } from "../app/templates/blank/BlankTemplateDemo";
 import CustomerListDemo from "../app/templates/entity-list/CustomerList";
 import { DataComponentsDemo } from "../app/components-data/DataComponentsDemo";
 import { CustomerCards } from "../app/templates/entity-cards/CustomerCards";
@@ -79,6 +80,9 @@ export const ComponentPreviews = () => {
       </ComponentPreview>
       <ComponentPreview path="/CustomerListDemo">
         <CustomerListDemo />
+      </ComponentPreview>
+      <ComponentPreview path="/blankTemplateDemo">
+        <BlankTemplateDemo />
       </ComponentPreview>
     </Previews>
   );

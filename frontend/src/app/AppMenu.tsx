@@ -1,6 +1,6 @@
 import React from "react";
 import { MenuItem, SubMenuItem, VerticalMenu } from "@haulmont/jmix-react-ui";
-import { HomeOutlined } from "@ant-design/icons";
+import {BarsOutlined, HomeOutlined} from "@ant-design/icons";
 import { tabs } from "@haulmont/jmix-react-core";
 
 export const AppMenu = () => {
@@ -53,6 +53,11 @@ export const AppMenu = () => {
         caption={"menu.Templates"}
         key={"7ef031d3-8a01-437b-bfef-7fc2800100cd"}
       >
+        <MenuItem
+          screenId={"BlankTemplateDemo"}
+          caption={"menu.BlankTemplateDemo"}
+          key={"ccdd6e24-fad4-44c0-9e3d-72636f17600a"}
+        />
         <MenuItem
           screenId={"DatatypesTestEntityList"}
           caption={"menu.TemplatesEntityEditTable"}

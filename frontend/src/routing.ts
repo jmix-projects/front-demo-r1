@@ -1,3 +1,4 @@
+import "./app/templates/blank/BlankTemplateDemo";
 import "./app/templates/entity-list/CustomerList";
 import "./app/components-data/DataComponentsDemo";
 import "./app/templates/structure/StructureDemo";
