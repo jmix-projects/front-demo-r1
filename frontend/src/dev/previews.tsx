@@ -24,6 +24,7 @@ import {EntityPermAccessControlDemo} from "../app/components-conditional/EntityP
 import {AttrPermAccessControlDemo} from "../app/components-conditional/AttrPermAccessControlDemo";
 import CustomerMDList from "../app/templates/master-detail/CustomerMDList";
 import {CustomerCardsGrid} from "../app/templates/entity-cards-grid/CustomerCardsGrid";
+import {UseEntityEditorDataDemo} from "../app/components-data/UseEntityEditorDataDemo";
 
 export const ComponentPreviews = () => {
   return (
@@ -102,6 +103,10 @@ export const ComponentPreviews = () => {
         <ComponentPreview path="/CustomerCardsGrid">
             <CustomerCardsGrid/>
         </ComponentPreview>
+      <ComponentPreview
+        path="/UseEntityEditorDataDemo">
+        <UseEntityEditorDataDemo/>
+      </ComponentPreview>
     </Previews>
   );
 };

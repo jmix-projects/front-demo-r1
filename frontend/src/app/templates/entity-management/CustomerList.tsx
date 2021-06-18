@@ -3,13 +3,21 @@ import {observer} from "mobx-react";
 import {DeleteOutlined, EditOutlined, LeftOutlined, PlusOutlined} from "@ant-design/icons";
 import {Button, Card, Tooltip} from "antd";
 import {EntityInstance, EntityPermAccessControl, getFields, toIdString} from "@haulmont/jmix-react-core";
-import {EntityListProps, EntityProperty, Paging, RetryDialog, Spinner, useEntityList} from "@haulmont/jmix-react-ui";
+import {
+  EntityListProps,
+  EntityProperty,
+  Paging, registerEntityList,
+  registerScreen,
+  RetryDialog,
+  Spinner,
+  useEntityList
+} from "@haulmont/jmix-react-ui";
 import {Customer} from "../../../jmix/entities/Customer";
 import {FormattedMessage} from "react-intl";
 import {gql} from "@apollo/client";
 
 const ENTITY_NAME = "Customer";
-const ROUTING_PATH = "/customerList";
+const ROUTING_PATH = "/customerManagementList";
 
 const CUSTOMER_LIST = gql`
   query CustomerList(
@@ -142,14 +150,15 @@ const CustomerList = observer((props: EntityListProps<Customer>) => {
   );
 });
 
-// registerRoute(
-//   `${ROUTING_PATH}/:entityId?`,
-//   ROUTING_PATH,
-//   "Customer List",
-//   <CustomerList/>,
-//   ENTITY_NAME,
-//   "CustomerList"
-// );
-// registerEntityBrowserScreen(ENTITY_NAME, "Customer List", <CustomerList/>);
+registerEntityList({
+  entityName: ENTITY_NAME,
+  screenId: "CustomerManagementList",
+  component: CustomerList,
+  caption: "Customer List",
+  menuOptions: {
+    pathPattern:`${ROUTING_PATH}/:entityId?`,
+    menuLink: ROUTING_PATH
+  }
+})
 
 export default CustomerList;

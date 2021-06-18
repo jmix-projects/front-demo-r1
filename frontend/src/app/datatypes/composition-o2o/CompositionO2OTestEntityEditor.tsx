@@ -9,7 +9,7 @@ import {
   createUseAntdFormValidation,
   EntityEditorProps,
   Field,
-  GlobalErrorsAlert,
+  GlobalErrorsAlert, registerEntityEditor,
   registerEntityList,
   RetryDialog,
   Spinner,
@@ -143,7 +143,7 @@ const CompositionO2OTestEntityEditor = observer(
   }
 );
 
-registerEntityList({
+registerEntityEditor({
   entityName: ENTITY_NAME,
   screenId: "CompositionO2OTestEntityEditor",
   component: CompositionO2OTestEntityEditor,

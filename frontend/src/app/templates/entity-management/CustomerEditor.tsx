@@ -127,7 +127,7 @@ const CustomerEditor = observer((props: EntityEditorProps<Customer>) => {
 registerEntityEditor({
   entityName: ENTITY_NAME,
   screenId: "CustomerEditor",
-  component:CustomerEditor,
+  component: CustomerEditor,
   caption: "Customer Editor"
 })
 
