@@ -2,7 +2,7 @@ import React from "react";
 import {Card, Space} from "antd";
 import {IFComponentDemo} from "./IFComponentDemo";
 import {TimerComponentDemo} from "./TimerComponentDemo";
-import {registerRoute} from "@haulmont/jmix-react-ui";
+import {registerScreen} from "@haulmont/jmix-react-ui";
 import {EntityPermAccessControlDemo} from "./EntityPermAccessControlDemo";
 import {AttrPermAccessControlDemo} from "./AttrPermAccessControlDemo";
 
@@ -23,12 +23,12 @@ export const ConditionalComponentsDemoScreen = () => (
   </Space>
 );
 
-
-registerRoute(
-  "/conditional-components",
-  "/conditional-components",
-  "Conditional Components Demo",
-  <ConditionalComponentsDemoScreen/>,
-  "ConditionalComponentsDemoScreen",
-  "ConditionalComponentsDemoScreen"
-);
+registerScreen({
+  screenId: "ConditionalComponentsDemoScreen",
+  component: ConditionalComponentsDemoScreen,
+  caption: "Conditional Components Demo",
+  menuOptions: {
+    menuLink:  "/conditional-components",
+    pathPattern: "/conditional-components",
+  }
+})

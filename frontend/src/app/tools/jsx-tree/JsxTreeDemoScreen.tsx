@@ -1,5 +1,5 @@
 import React from "react";
-import {registerRoute} from "@haulmont/jmix-react-ui";
+import {registerScreen} from "@haulmont/jmix-react-ui";
 import Title from "antd/lib/typography/Title";
 import {Alert} from "antd";
 
@@ -189,11 +189,12 @@ export const RenderFunctionComponent: React.FC = () => {
   )
 }
 
-registerRoute(
-  "/tools/jsx",
-  "/tools/jsx",
-  "Jsx Tree Demo",
-  <JsxTreeDemoScreen />,
-  "",
-  "JsxTreeDemo"
-);
+registerScreen({
+  screenId: "JsxTreeDemo",
+  component: JsxTreeDemoScreen,
+  caption: "Jsx Tree Demo",
+  menuOptions: {
+    menuLink: "/tools/jsx",
+    pathPattern: "/tools/jsx"
+  }
+})

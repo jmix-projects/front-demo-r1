@@ -1,31 +1,20 @@
-import React, { useContext } from "react";
-import { observer } from "mobx-react";
+import React from "react";
+import {observer} from "mobx-react";
+import {DeleteOutlined, EditOutlined, LeftOutlined, PlusOutlined} from "@ant-design/icons";
+import {Button, List, Tooltip} from "antd";
+import {EntityInstance, EntityPermAccessControl, getFields} from "@haulmont/jmix-react-core";
 import {
-  DeleteOutlined,
-  EditOutlined,
-  PlusOutlined,
-  LeftOutlined
-} from "@ant-design/icons";
-import { Button, List, Tooltip } from "antd";
-import {
-  EntityInstance,
-  getFields,
-  EntityPermAccessControl,
-  ScreensContext
-} from "@haulmont/jmix-react-core";
-import {
+  EntityListProps,
   EntityProperty,
   Paging,
-  Spinner,
+  registerScreen,
   RetryDialog,
-  useEntityList,
-  EntityListProps,
-  registerEntityBrowserScreen,
-  registerRoute
+  Spinner,
+  useEntityList
 } from "@haulmont/jmix-react-ui";
-import { Customer } from "../../../jmix/entities/Customer";
-import { FormattedMessage } from "react-intl";
-import { gql } from "@apollo/client";
+import {Customer} from "../../../jmix/entities/Customer";
+import {FormattedMessage} from "react-intl";
+import {gql} from "@apollo/client";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerList";
@@ -52,12 +41,6 @@ const CUSTOMER_LIST = gql`
   }
 `;
 
-const DELETE_CUSTOMER = gql`
-  mutation Delete_Customer($id: String!) {
-    delete_Customer(id: $id)
-  }
-`;
-
 const CustomerList = observer((props: EntityListProps<Customer>) => {
   const { entityList, onEntityListChange } = props;
 
@@ -74,7 +57,6 @@ const CustomerList = observer((props: EntityListProps<Customer>) => {
     entityListState
   } = useEntityList<Customer>({
     listQuery: CUSTOMER_LIST,
-    deleteMutation: DELETE_CUSTOMER,
     entityName: ENTITY_NAME,
     routingPath: ROUTING_PATH,
     entityList,
@@ -167,13 +149,14 @@ const CustomerList = observer((props: EntityListProps<Customer>) => {
   );
 });
 
-registerRoute(
-  `${ROUTING_PATH}/:entityId?`,
-  ROUTING_PATH,
-  "Customer List",
-  <CustomerList />,
-  "Customer List",
-  "CustomerList"
-);
+registerScreen({
+  screenId: "CustomerList",
+  component: CustomerList,
+  caption: "Customer List",
+  menuOptions: {
+    menuLink: ROUTING_PATH,
+    pathPattern: `${ROUTING_PATH}/:entityId?`
+  }
+})
 
 export default CustomerList;

@@ -1,7 +1,6 @@
-import { Row, Col, Card } from "antd";
+import {Card, Col, Row} from "antd";
 import React from "react";
-import {registerRoute} from "@haulmont/jmix-react-ui";
-import CustomerMasterDetail from "../master-detail/CustomerMasterDetail";
+import {registerScreen} from "@haulmont/jmix-react-ui";
 
 export const StructureDemo = () => (
   <Row gutter={16}>
@@ -15,12 +14,12 @@ export const StructureDemo = () => (
   </Row>
 );
 
-
-registerRoute(
-  `/templates/structure`,
-  `/templates/structure`,
-  "Structure Demo",
-  <StructureDemo />,
-  `StructureDemo`,
-  `StructureDemo`
-);
+registerScreen({
+  screenId: `StructureDemo`,
+  component: StructureDemo,
+  caption: "Structure Demo",
+  menuOptions: {
+    menuLink: `/templates/structure`,
+    pathPattern: `/templates/structure`
+  }
+})

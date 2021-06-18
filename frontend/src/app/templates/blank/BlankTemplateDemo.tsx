@@ -1,15 +1,14 @@
 import React from "react";
-import {registerRoute} from "@haulmont/jmix-react-ui";
-import CustomerList from "../entity-list/CustomerList";
+import {registerScreen} from "@haulmont/jmix-react-ui";
 
 export const BlankTemplateDemo = () => <div>BlankTemplateDemo</div>;
 
-
-registerRoute(
-  `/templates/blank`,
-  `/templates/blank`,
-  "Blank Component",
-  <BlankTemplateDemo />,
-  "BlankTemplateDemo",
-  "BlankTemplateDemo"
-);
+registerScreen({
+  screenId: "BlankTemplateDemo",
+  component: BlankTemplateDemo,
+  caption: "Blank Component",
+  menuOptions: {
+    menuLink: `/templates/blank`,
+    pathPattern: `/templates/blank`
+  }
+})

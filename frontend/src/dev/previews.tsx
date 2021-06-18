@@ -22,6 +22,8 @@ import { TimerComponentDemo } from "../app/components-conditional/TimerComponent
 import { UseEntityListDataDemo } from "../app/components-data/UseEntityListDataDemo";
 import {EntityPermAccessControlDemo} from "../app/components-conditional/EntityPermAccessControlDemo";
 import {AttrPermAccessControlDemo} from "../app/components-conditional/AttrPermAccessControlDemo";
+import CustomerMDList from "../app/templates/master-detail/CustomerMDList";
+import {CustomerCardsGrid} from "../app/templates/entity-cards-grid/CustomerCardsGrid";
 
 export const ComponentPreviews = () => {
   return (
@@ -94,6 +96,12 @@ export const ComponentPreviews = () => {
         path="/AttrPermAccessControlDemo">
         <AttrPermAccessControlDemo/>
       </ComponentPreview>
+        <ComponentPreview path="/CustomerMDList">
+            <CustomerMDList/>
+        </ComponentPreview>
+        <ComponentPreview path="/CustomerCardsGrid">
+            <CustomerCardsGrid/>
+        </ComponentPreview>
     </Previews>
   );
 };

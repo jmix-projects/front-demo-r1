@@ -1,22 +1,12 @@
-import React, { useContext } from "react";
-import { observer } from "mobx-react";
-import { PlusOutlined, LeftOutlined } from "@ant-design/icons";
-import { Button, Tooltip } from "antd";
-import {
-  EntityPermAccessControl,
-  ScreensContext
-} from "@haulmont/jmix-react-core";
-import {
-  DataTable,
-  RetryDialog,
-  useEntityList,
-  EntityListProps,
-  registerEntityBrowserScreen,
-  registerRoute
-} from "@haulmont/jmix-react-ui";
-import { DatatypesTestEntity } from "../../../jmix/entities/DatatypesTestEntity";
-import { FormattedMessage } from "react-intl";
-import { gql } from "@apollo/client";
+import React from "react";
+import {observer} from "mobx-react";
+import {LeftOutlined, PlusOutlined} from "@ant-design/icons";
+import {Button, Tooltip} from "antd";
+import {EntityPermAccessControl} from "@haulmont/jmix-react-core";
+import {DataTable, EntityListProps, registerEntityList, RetryDialog, useEntityList} from "@haulmont/jmix-react-ui";
+import {DatatypesTestEntity} from "../../../jmix/entities/DatatypesTestEntity";
+import {FormattedMessage} from "react-intl";
+import {gql} from "@apollo/client";
 
 const ENTITY_NAME = "DatatypesTestEntity";
 const ROUTING_PATH = "/datatypesTestEntityList";
@@ -58,12 +48,6 @@ const DATATYPESTESTENTITY_LIST = gql`
   }
 `;
 
-const DELETE_DATATYPESTESTENTITY = gql`
-  mutation Delete_DatatypesTestEntity($id: String!) {
-    delete_DatatypesTestEntity(id: $id)
-  }
-`;
-
 const DatatypesTestEntityList = observer(
   (props: EntityListProps<DatatypesTestEntity>) => {
     const { entityList, onEntityListChange } = props;
@@ -85,7 +69,6 @@ const DatatypesTestEntityList = observer(
       entityListState
     } = useEntityList<DatatypesTestEntity>({
       listQuery: DATATYPESTESTENTITY_LIST,
-      deleteMutation: DELETE_DATATYPESTESTENTITY,
       entityName: ENTITY_NAME,
       routingPath: ROUTING_PATH,
       entityList,
@@ -206,18 +189,16 @@ const DatatypesTestEntityList = observer(
   }
 );
 
-registerRoute(
-  `${ROUTING_PATH}/:entityId?`,
-  ROUTING_PATH,
-  "Datatypes Test Entity Browse",
-  <DatatypesTestEntityList />,
-  ENTITY_NAME,
-  "DatatypesTestEntityList"
-);
-registerEntityBrowserScreen(
-  ENTITY_NAME,
-  "Datatypes Test Entity Browse",
-  <DatatypesTestEntityList />
-);
+registerEntityList({
+  entityName: ENTITY_NAME,
+  screenId: "DatatypesTestEntityList",
+  component: DatatypesTestEntityList,
+  caption: "Datatypes Test Entity Browse",
+  menuOptions: {
+    pathPattern: `${ROUTING_PATH}/:entityId?`,
+    menuLink: ROUTING_PATH
+  }
+});
+
 
 export default DatatypesTestEntityList;

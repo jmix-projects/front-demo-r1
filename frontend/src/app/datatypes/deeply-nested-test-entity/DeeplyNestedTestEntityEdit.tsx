@@ -1,24 +1,23 @@
-import React, { useContext } from "react";
-import { Form, Alert, Button, Card } from "antd";
-import { useForm } from "antd/es/form/Form";
-import { observer } from "mobx-react";
-import { toJS } from "mobx";
-import { FormattedMessage } from "react-intl";
+import React from "react";
+import {Button, Card, Form} from "antd";
+import {useForm} from "antd/es/form/Form";
+import {observer} from "mobx-react";
+import {FormattedMessage} from "react-intl";
 import {
   createAntdFormValidationMessages,
   createUseAntdForm,
   createUseAntdFormValidation,
-  RetryDialog,
+  EntityEditorProps,
   Field,
   GlobalErrorsAlert,
+  registerEntityEditor,
+  RetryDialog,
   Spinner,
-  useEntityEditor,
-  EntityEditorProps,
-  registerEntityEditorScreen
+  useEntityEditor
 } from "@haulmont/jmix-react-ui";
-import { gql } from "@apollo/client";
+import {gql} from "@apollo/client";
 import "../../../app/App.css";
-import { DeeplyNestedTestEntity } from "../../../jmix/entities/DeeplyNestedTestEntity";
+import {DeeplyNestedTestEntity} from "../../../jmix/entities/DeeplyNestedTestEntity";
 
 const ENTITY_NAME = "DeeplyNestedTestEntity";
 const ROUTING_PATH = "/deeplyNestedTestEntityEdit";
@@ -122,10 +121,11 @@ const DeeplyNestedTestEntityEdit = observer(
   }
 );
 
-registerEntityEditorScreen(
-  ENTITY_NAME,
-  "deeplyNestedTestEntityEdit",
-  <DeeplyNestedTestEntityEdit />
-);
+registerEntityEditor({
+  entityName: ENTITY_NAME,
+  screenId: "DeeplyNestedTestEntityEdit",
+  component: DeeplyNestedTestEntityEdit,
+  caption: "deeplyNestedTestEntityEdit"
+})
 
 export default DeeplyNestedTestEntityEdit;

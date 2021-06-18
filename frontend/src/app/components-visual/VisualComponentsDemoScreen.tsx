@@ -1,5 +1,5 @@
 import React from "react";
-import {DataTable, EntityProperty, Field, registerRoute} from "@haulmont/jmix-react-ui";
+import {DataTable, EntityProperty, Field, registerScreen} from "@haulmont/jmix-react-ui";
 import {Card, Space, Typography} from "antd";
 import Link from "antd/lib/typography/Link";
 import Paragraph from "antd/es/typography/Paragraph";
@@ -80,11 +80,12 @@ export const VisualComponentsDemoScreen = () => (
   </Space>
 );
 
-registerRoute(
-  "/visual-components",
-  "/visual-components",
-  "Visual Components Demo",
-  <VisualComponentsDemoScreen/>,
-  "VisualComponentsDemo",
-  "VisualComponentsDemo"
-);
+registerScreen({
+  screenId: "VisualComponentsDemo",
+  component: VisualComponentsDemoScreen,
+  caption: "Visual Components Demo",
+  menuOptions: {
+    menuLink: "/visual-components",
+    pathPattern: "/visual-components"
+  }
+})

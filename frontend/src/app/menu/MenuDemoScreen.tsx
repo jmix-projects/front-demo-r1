@@ -1,6 +1,6 @@
 import React from "react";
 import {DemoMenuHorizontal} from "./DemoMenuHorizontal";
-import {registerRoute} from "@haulmont/jmix-react-ui";
+import {registerScreen} from "@haulmont/jmix-react-ui";
 import Title from "antd/es/typography/Title";
 import {DemoMenuVertical} from "./DemoMenuVertical";
 
@@ -16,11 +16,12 @@ export const MenuDemoScreen = () => (
   </div>
 );
 
-registerRoute(
-  "/menu",
-  "/menu",
-  "Menu Demo",
-  <MenuDemoScreen />,
-  "MenuDemo",
-  "MenuDemo"
-);
+registerScreen({
+  screenId: "MenuDemo",
+  component: MenuDemoScreen,
+  caption: "Menu Demo",
+  menuOptions: {
+    pathPattern: "/menu",
+    menuLink: "/menu"
+  }
+});

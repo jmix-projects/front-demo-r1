@@ -1,18 +1,19 @@
-import React, { useContext } from "react";
-import { observer } from "mobx-react";
-import { Card } from "antd";
-import { Customer } from "../../../jmix/entities/Customer";
-import { getFields, ScreensContext } from "@haulmont/jmix-react-core";
+import React from "react";
+import {observer} from "mobx-react";
+import {Card} from "antd";
+import {Customer} from "../../../jmix/entities/Customer";
+import {getFields} from "@haulmont/jmix-react-core";
 import {
   EntityProperty,
   Paging,
+  registerEntityList,
+  registerScreen,
   RetryDialog,
   Spinner,
-  useEntityList,
-  registerRoute
+  useEntityList
 } from "@haulmont/jmix-react-ui";
-import { getStringId } from "@haulmont/jmix-rest";
-import { gql } from "@apollo/client";
+import {getStringId} from "@haulmont/jmix-rest";
+import {gql} from "@apollo/client";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerCards";
@@ -39,12 +40,6 @@ const CUSTOMER_LIST = gql`
   }
 `;
 
-const DELETE_CUSTOMER = gql`
-  mutation Delete_Customer($id: String!) {
-    delete_Customer(id: $id)
-  }
-`;
-
 export const CustomerCards = observer(() => {
   const {
     executeListQuery,
@@ -53,7 +48,6 @@ export const CustomerCards = observer(() => {
     entityListState
   } = useEntityList<Customer>({
     listQuery: CUSTOMER_LIST,
-    deleteMutation: DELETE_CUSTOMER,
     entityName: ENTITY_NAME,
     routingPath: ROUTING_PATH
   });
@@ -100,11 +94,12 @@ export const CustomerCards = observer(() => {
   );
 });
 
-registerRoute(
-  ROUTING_PATH,
-  ROUTING_PATH,
-  "CustomerCards",
-  <CustomerCards />,
-  "CustomerCards",
-  "CustomerCards"
-);
+registerScreen({
+  screenId: "CustomerCards",
+  component: CustomerCards,
+  caption: "Entity Cards",
+  menuOptions: {
+    pathPattern: ROUTING_PATH,
+    menuLink: ROUTING_PATH
+  }
+})

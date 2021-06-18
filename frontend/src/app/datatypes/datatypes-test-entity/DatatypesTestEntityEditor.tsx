@@ -1,25 +1,23 @@
-import React, { useContext } from "react";
-import { Form, Alert, Button, Card } from "antd";
-import { useForm } from "antd/es/form/Form";
-import { observer } from "mobx-react";
-import { toJS } from "mobx";
-import { FormattedMessage } from "react-intl";
+import React from "react";
+import {Button, Card, Form} from "antd";
+import {useForm} from "antd/es/form/Form";
+import {observer} from "mobx-react";
+import {FormattedMessage} from "react-intl";
 import {
   createAntdFormValidationMessages,
   createUseAntdForm,
   createUseAntdFormValidation,
-  RetryDialog,
+  EntityEditorProps,
   Field,
   GlobalErrorsAlert,
+  registerEntityEditor,
+  RetryDialog,
   Spinner,
-  useEntityEditor,
-  EntityEditorProps,
-  registerEntityEditorScreen, registerRoute
+  useEntityEditor
 } from "@haulmont/jmix-react-ui";
-import { gql } from "@apollo/client";
+import {gql} from "@apollo/client";
 import "../../../app/App.css";
-import { DatatypesTestEntity } from "../../../jmix/entities/DatatypesTestEntity";
-import DatatypesTestEntityList from "./DatatypesTestEntityList";
+import {DatatypesTestEntity} from "../../../jmix/entities/DatatypesTestEntity";
 
 const ENTITY_NAME = "DatatypesTestEntity";
 const ROUTING_PATH = "/datatypesTestEntityEditor";
@@ -267,19 +265,15 @@ const DatatypesTestEntityEditor = observer(
   }
 );
 
-registerEntityEditorScreen(
-  ENTITY_NAME,
-  "datatypesTestEntityEditor",
-  <DatatypesTestEntityEditor />
-);
-
-registerRoute(
-  `${ROUTING_PATH}`,
-  ROUTING_PATH,
-  "Datatypes Test Entity Edit",
-  <DatatypesTestEntityEditor />,
-  ENTITY_NAME,
-  "DatatypesTestEntityEdit"
-);
+registerEntityEditor({
+  entityName: ENTITY_NAME,
+  screenId: "DatatypesTestEntityEdit",
+  component: DatatypesTestEntityEditor,
+  caption: "Datatypes Test Entity Edit",
+  menuOptions: {
+    menuLink: ROUTING_PATH,
+    pathPattern: ROUTING_PATH
+  }
+})
 
 export default DatatypesTestEntityEditor;

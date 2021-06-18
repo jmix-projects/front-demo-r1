@@ -1,24 +1,23 @@
-import React, { useContext } from "react";
-import { Form, Alert, Button, Card } from "antd";
-import { useForm } from "antd/es/form/Form";
-import { observer } from "mobx-react";
-import { toJS } from "mobx";
-import { FormattedMessage } from "react-intl";
+import React from "react";
+import {Button, Card, Form} from "antd";
+import {useForm} from "antd/es/form/Form";
+import {observer} from "mobx-react";
+import {FormattedMessage} from "react-intl";
 import {
   createAntdFormValidationMessages,
   createUseAntdForm,
   createUseAntdFormValidation,
-  RetryDialog,
+  EntityEditorProps,
   Field,
   GlobalErrorsAlert,
+  registerEntityList,
+  RetryDialog,
   Spinner,
-  useEntityEditor,
-  EntityEditorProps,
-  registerEntityEditorScreen
+  useEntityEditor
 } from "@haulmont/jmix-react-ui";
-import { gql } from "@apollo/client";
+import {gql} from "@apollo/client";
 import "../../../app/App.css";
-import { CompositionO2OTestEntity } from "../../../jmix/entities/CompositionO2OTestEntity";
+import {CompositionO2OTestEntity} from "../../../jmix/entities/CompositionO2OTestEntity";
 
 const ENTITY_NAME = "CompositionO2OTestEntity";
 const ROUTING_PATH = "/compositionO2OTestEntityEditor";
@@ -144,10 +143,11 @@ const CompositionO2OTestEntityEditor = observer(
   }
 );
 
-registerEntityEditorScreen(
-  ENTITY_NAME,
-  "Composition O2O Editor",
-  <CompositionO2OTestEntityEditor />
-);
+registerEntityList({
+  entityName: ENTITY_NAME,
+  screenId: "CompositionO2OTestEntityEditor",
+  component: CompositionO2OTestEntityEditor,
+  caption: "Composition O2O Editor"
+})
 
 export default CompositionO2OTestEntityEditor;

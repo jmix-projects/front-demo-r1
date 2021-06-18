@@ -2,7 +2,7 @@ import React from "react";
 import {UseEntityListDataDemo} from "./UseEntityListDataDemo";
 import {Card} from "antd";
 import Text from "antd/es/typography/Text";
-import {registerRoute} from "@haulmont/jmix-react-ui";
+import {registerScreen} from "@haulmont/jmix-react-ui";
 
 export const DataComponentsDemo = () => {
   return (
@@ -18,11 +18,12 @@ export const DataComponentsDemo = () => {
   )
 };
 
-registerRoute(
-  "/data-components",
-  "/data-components",
-  "Data Components Demo",
-  <DataComponentsDemo/>,
-  "DataComponentsDemo",
-  "DataComponentsDemo"
-);
+registerScreen({
+  screenId: "DataComponentsDemo",
+  component: DataComponentsDemo,
+  caption: "Data Components Demo",
+  menuOptions: {
+    menuLink: "/data-components",
+    pathPattern: "/data-components"
+  }
+})

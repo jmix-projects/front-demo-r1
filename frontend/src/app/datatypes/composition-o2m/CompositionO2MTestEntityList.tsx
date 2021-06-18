@@ -1,22 +1,17 @@
-import React, { useContext } from "react";
-import { observer } from "mobx-react";
-import { PlusOutlined, LeftOutlined } from "@ant-design/icons";
-import { Button, Tooltip } from "antd";
-import {
-  EntityPermAccessControl,
-  ScreensContext
-} from "@haulmont/jmix-react-core";
+import React from "react";
+import {observer} from "mobx-react";
+import {LeftOutlined, PlusOutlined} from "@ant-design/icons";
+import {Button, Tooltip} from "antd";
+import {EntityPermAccessControl} from "@haulmont/jmix-react-core";
 import {
   DataTable,
+  EntityListProps, registerEntityList,
   RetryDialog,
-  useEntityList,
-  EntityListProps,
-  registerEntityBrowserScreen,
-  registerRoute
+  useEntityList
 } from "@haulmont/jmix-react-ui";
-import { CompositionO2MTestEntity } from "../../../jmix/entities/CompositionO2MTestEntity";
-import { FormattedMessage } from "react-intl";
-import { gql } from "@apollo/client";
+import {CompositionO2MTestEntity} from "../../../jmix/entities/CompositionO2MTestEntity";
+import {FormattedMessage} from "react-intl";
+import {gql} from "@apollo/client";
 
 const ENTITY_NAME = "CompositionO2MTestEntity";
 const ROUTING_PATH = "/compositionO2MTestEntityList";
@@ -43,12 +38,6 @@ const COMPOSITIONO2MTESTENTITY_LIST = gql`
   }
 `;
 
-const DELETE_COMPOSITIONO2MTESTENTITY = gql`
-  mutation Delete_CompositionO2MTestEntity($id: String!) {
-    delete_CompositionO2MTestEntity(id: $id)
-  }
-`;
-
 const CompositionO2MTestEntityList = observer(
   (props: EntityListProps<CompositionO2MTestEntity>) => {
     const { entityList, onEntityListChange } = props;
@@ -70,7 +59,6 @@ const CompositionO2MTestEntityList = observer(
       entityListState
     } = useEntityList<CompositionO2MTestEntity>({
       listQuery: COMPOSITIONO2MTESTENTITY_LIST,
-      deleteMutation: DELETE_COMPOSITIONO2MTESTENTITY,
       entityName: ENTITY_NAME,
       routingPath: ROUTING_PATH,
       entityList,
@@ -173,18 +161,15 @@ const CompositionO2MTestEntityList = observer(
   }
 );
 
-registerRoute(
-  `${ROUTING_PATH}/:entityId?`,
-  ROUTING_PATH,
-  "Composition O2M",
-  <CompositionO2MTestEntityList />,
-  ENTITY_NAME,
-  "CompositionO2MTestEntityList"
-);
-registerEntityBrowserScreen(
-  ENTITY_NAME,
-  "Composition O2M",
-  <CompositionO2MTestEntityList />
-);
+registerEntityList({
+  entityName: ENTITY_NAME,
+  screenId: "CompositionO2MTestEntityList",
+  component: CompositionO2MTestEntityList,
+  caption: "Composition O2M",
+  menuOptions: {
+    menuLink: ROUTING_PATH,
+    pathPattern: `${ROUTING_PATH}/:entityId?`
+  }
+});
 
 export default CompositionO2MTestEntityList;

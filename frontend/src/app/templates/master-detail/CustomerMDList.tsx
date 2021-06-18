@@ -38,12 +38,6 @@ const CUSTOMER_LIST = gql`
   }
 `;
 
-const DELETE_CUSTOMER = gql`
-  mutation Delete_Customer($id: String!) {
-    delete_Customer(id: $id)
-  }
-`;
-
 const CustomerMDList = observer((props: EntityListProps<Customer>) => {
   const { entityList, onEntityListChange } = props;
 
@@ -63,7 +57,6 @@ const CustomerMDList = observer((props: EntityListProps<Customer>) => {
     entityListState
   } = useMasterDetailList<Customer>({
     listQuery: CUSTOMER_LIST,
-    deleteMutation: DELETE_CUSTOMER,
     entityName: ENTITY_NAME,
     routingPath: ROUTING_PATH,
     entityList,
