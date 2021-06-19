@@ -1,0 +1,16 @@
+insert into public.customer (id, name, email, version, created_by, created_date, last_modified_by, last_modified_date, deleted_by, deleted_date)
+values  ('0fd79ee4-be3e-9ecf-8450-068be04dc4a1', 'Test Customer 1', 'customer1@example.com', 1, 'admin', '2021-06-19 19:44:04.374000', null, '2021-06-19 19:44:04.374000', null, null),
+        ('056754ad-75b0-95b1-c290-cbbe2abe819e', 'Test Customer 2', 'customer2@example.com', 1, 'admin', '2021-06-19 19:44:17.320000', null, '2021-06-19 19:44:17.320000', null, null),
+        ('bb71d82c-18e1-b3c0-898a-187ccacd9633', 'Test Customer 3', 'customer3@example.com', 1, 'admin', '2021-06-19 19:44:30.579000', null, '2021-06-19 19:44:30.579000', null, null),
+        ('c535cc6f-6830-cb27-9783-fdaaa243f2f0', 'Test Customer 4', 'customer4@example.com', 1, 'admin', '2021-06-19 19:44:48.008000', null, '2021-06-19 19:44:48.008000', null, null),
+        ('37ed26cd-caa4-d231-3fb9-e11cdbd923fd', 'Test Customer 5', 'customer5@example.com', 1, 'admin', '2021-06-19 19:44:58.592000', null, '2021-06-19 19:44:58.592000', null, null),
+        ('b1e2672c-b278-bad3-8a11-61b6a3c12f37', 'Test Customer 6', 'customer6@example.com', 1, 'admin', '2021-06-19 19:45:14.450000', null, '2021-06-19 19:45:14.450000', null, null),
+        ('7dc66e35-dd14-9a59-7731-aa29065557c2', 'Test Customer 7', 'customer7@example.com', 1, 'admin', '2021-06-19 19:45:39.875000', null, '2021-06-19 19:45:39.875000', null, null),
+        ('be5c1038-dcbe-28b9-a74a-6f2cc1023d8e', 'Test Customer 8', 'customer8@example.com', 1, 'admin', '2021-06-19 19:45:49.720000', null, '2021-06-19 19:45:49.720000', null, null),
+        ('b63fbdf1-10ac-4edb-b7ef-84fcfe8272eb', 'Test Customer 9', 'customer9@example.com', 1, 'admin', '2021-06-19 19:46:01.879000', null, '2021-06-19 19:46:01.879000', null, null),
+        ('264a6314-2408-6399-2fc4-c8d491d9ed2d', 'Test Customer 10', 'customer10@example.com', 1, 'admin', '2021-06-19 19:46:13.532000', null, '2021-06-19 19:46:13.532000', null, null),
+        ('11dda122-faee-ec3d-193f-1f67f7adcbdd', 'Test Customer 11', 'customer11@example.com', 1, 'admin', '2021-06-19 20:17:56.479000', null, '2021-06-19 20:17:56.479000', null, null),
+        ('2a61f544-0a05-c011-3751-b0e03f88589d', 'Test Customer 12', 'customer12@example.com', 1, 'admin', '2021-06-19 20:18:06.683000', null, '2021-06-19 20:18:06.683000', null, null),
+        ('e6ab4feb-9d77-308f-b154-685edc7754e6', 'Test Customer 13', 'customer13@example.com', 1, 'admin', '2021-06-19 20:18:19.849000', null, '2021-06-19 20:18:19.849000', null, null),
+        ('068c99ef-daac-75fe-6061-e8e97565850f', 'Test Customer 14', 'customer14@example.com', 1, 'admin', '2021-06-19 20:18:30.469000', null, '2021-06-19 20:18:30.469000', null, null),
+        ('c57984b2-011e-1a18-37de-a3ec6e4bddb5', 'Test Customer 15', 'customer15@example.com', 1, 'admin', '2021-06-19 20:18:43.793000', null, '2021-06-19 20:18:43.793000', null, null);
