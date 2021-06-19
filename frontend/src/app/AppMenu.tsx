@@ -1,6 +1,6 @@
 import React from "react";
 import { MenuItem, SubMenuItem, VerticalMenu } from "@haulmont/jmix-react-ui";
-import {BarsOutlined, HomeOutlined} from "@ant-design/icons";
+import { BarsOutlined, HomeOutlined } from "@ant-design/icons";
 import { tabs } from "@haulmont/jmix-react-core";
 
 export const AppMenu = () => {
@@ -81,7 +81,7 @@ export const AppMenu = () => {
         <MenuItem
           screenId={"CustomerManagementList"}
           caption={"menu.EntityManagement"}
-          key={"38f79e27-d3fb-4558-845d-1c00e9d5eb18"}
+          key={"93eb4c45-8297-401c-b555-026d3ae68c67"}
         />
         <MenuItem
           screenId={"CustomerMasterDetail"}

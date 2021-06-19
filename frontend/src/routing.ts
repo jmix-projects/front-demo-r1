@@ -1,3 +1,5 @@
+import "./app/templates/entity-management/CustomerManagementList";
+import "./app/templates/entity-management/CustomerManagementEditor";
 import "./app/templates/blank/BlankTemplateDemo";
 import "./app/templates/entity-list/CustomerList";
 import "./app/components-data/DataComponentsDemo";
@@ -10,8 +12,6 @@ import "./app/components-visual/VisualComponentsDemoScreen";
 import "./app/datatypes/deeply-nested-test-entity/DeeplyNestedTestEntityEdit";
 import "./app/datatypes/composition-o2o/CompositionO2OTestEntityList";
 import "./app/datatypes/composition-o2o/CompositionO2OTestEntityEditor";
-import "./app/templates/entity-management/CustomerList";
-import "./app/templates/entity-management/CustomerEditor";
 import "./app/menu/MenuDemoScreen";
 import "./app/datatypes/composition-o2m/CompositionO2MTestEntityList";
 import "./app/datatypes/composition-o2m/CompositionO2MTestEntityEditor";
