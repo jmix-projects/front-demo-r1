@@ -10,4 +10,8 @@
 
     <includeAll path="/io/jmix/frontdemo/liquibase/changelog"/>
 
+    <changeSet id="customers" author="admin">
+        <sqlFile path="customers.sql" relativeToChangelogFile="true" stripComments="true"/>
+    </changeSet>
+
 </databaseChangeLog>

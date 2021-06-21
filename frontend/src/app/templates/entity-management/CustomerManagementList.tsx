@@ -1,20 +1,30 @@
 import React from "react";
-import {observer} from "mobx-react";
-import {DeleteOutlined, EditOutlined, LeftOutlined, PlusOutlined} from "@ant-design/icons";
-import {Button, Card, Tooltip} from "antd";
-import {EntityInstance, EntityPermAccessControl, getFields, toIdString} from "@haulmont/jmix-react-core";
+import { observer } from "mobx-react";
 import {
-  EntityListProps,
+  DeleteOutlined,
+  EditOutlined,
+  PlusOutlined,
+  LeftOutlined
+} from "@ant-design/icons";
+import { Button, Card, Tooltip } from "antd";
+import {
+  EntityInstance,
+  getFields,
+  EntityPermAccessControl,
+  toIdString
+} from "@haulmont/jmix-react-core";
+import {
   EntityProperty,
-  Paging, registerEntityList,
-  registerScreen,
-  RetryDialog,
+  Paging,
   Spinner,
-  useEntityList
+  RetryDialog,
+  useEntityList,
+  EntityListProps,
+  registerEntityList
 } from "@haulmont/jmix-react-ui";
-import {Customer} from "../../../jmix/entities/Customer";
-import {FormattedMessage} from "react-intl";
-import {gql} from "@apollo/client";
+import { Customer } from "../../../jmix/entities/Customer";
+import { FormattedMessage } from "react-intl";
+import { gql } from "@apollo/client";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerManagementList";
@@ -41,7 +51,7 @@ const CUSTOMER_LIST = gql`
   }
 `;
 
-const CustomerList = observer((props: EntityListProps<Customer>) => {
+const CustomerManagementList = observer((props: EntityListProps<Customer>) => {
   const { entityList, onEntityListChange } = props;
 
   const {
@@ -74,34 +84,36 @@ const CustomerList = observer((props: EntityListProps<Customer>) => {
 
   return (
     <div className="narrow-layout">
-      {entityList != null && (
-        <Tooltip title={<FormattedMessage id="common.back" />}>
-          <Button
-            htmlType="button"
-            style={{ margin: "0 12px 12px 0" }}
-            icon={<LeftOutlined />}
-            onClick={goToParentScreen}
-            key="back"
-            type="default"
-            shape="circle"
-          />
-        </Tooltip>
-      )}
+      <div style={{ marginBottom: "12px" }}>
+        {entityList != null && (
+          <Tooltip title={<FormattedMessage id="common.back" />}>
+            <Button
+              htmlType="button"
+              style={{ margin: "0 12px 12px 0" }}
+              icon={<LeftOutlined />}
+              onClick={goToParentScreen}
+              key="back"
+              type="default"
+              shape="circle"
+            />
+          </Tooltip>
+        )}
 
-      <EntityPermAccessControl entityName={ENTITY_NAME} operation="create">
-        <span style={{ marginBottom: "12px" }}>
-          <Button
-            htmlType="button"
-            type="primary"
-            icon={<PlusOutlined />}
-            onClick={handleCreateBtnClick}
-          >
-            <span>
-              <FormattedMessage id="common.create" />
-            </span>
-          </Button>
-        </span>
-      </EntityPermAccessControl>
+        <EntityPermAccessControl entityName={ENTITY_NAME} operation="create">
+          <span>
+            <Button
+              htmlType="button"
+              type="primary"
+              icon={<PlusOutlined />}
+              onClick={handleCreateBtnClick}
+            >
+              <span>
+                <FormattedMessage id="common.create" />
+              </span>
+            </Button>
+          </span>
+        </EntityPermAccessControl>
+      </div>
 
       {items == null || items.length === 0 ? (
         <p>
@@ -118,13 +130,23 @@ const CustomerList = observer((props: EntityListProps<Customer>) => {
               entityName={ENTITY_NAME}
               operation="delete"
             >
-              <DeleteOutlined key="delete" onClick={handleDeleteBtnClick} />
+              <DeleteOutlined
+                key="delete"
+                onClick={(event?: React.MouseEvent) =>
+                  handleDeleteBtnClick(event, e.id)
+                }
+              />
             </EntityPermAccessControl>,
             <EntityPermAccessControl
               entityName={ENTITY_NAME}
               operation="update"
             >
-              <EditOutlined key="edit" onClick={handleEditBtnClick} />
+              <EditOutlined
+                key="edit"
+                onClick={(event?: React.MouseEvent) =>
+                  handleEditBtnClick(event, e.id)
+                }
+              />
             </EntityPermAccessControl>
           ]}
         >
@@ -151,14 +173,14 @@ const CustomerList = observer((props: EntityListProps<Customer>) => {
 });
 
 registerEntityList({
-  entityName: ENTITY_NAME,
+  component: CustomerManagementList,
+  caption: "Customer Management List",
   screenId: "CustomerManagementList",
-  component: CustomerList,
-  caption: "Customer List",
+  entityName: ENTITY_NAME,
   menuOptions: {
-    pathPattern:`${ROUTING_PATH}/:entityId?`,
+    pathPattern: `${ROUTING_PATH}/:entityId?`,
     menuLink: ROUTING_PATH
   }
-})
+});
 
-export default CustomerList;
+export default CustomerManagementList;

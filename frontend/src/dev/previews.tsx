@@ -1,4 +1,6 @@
 import { VisualComponentsDemoScreen } from "../app/components-visual/VisualComponentsDemoScreen";
+import CustomerManagementList from "../app/templates/entity-management/CustomerManagementList";
+import CustomerManagementEditor from "../app/templates/entity-management/CustomerManagementEditor";
 import { BlankTemplateDemo } from "../app/templates/blank/BlankTemplateDemo";
 import CustomerListDemo from "../app/templates/entity-list/CustomerList";
 import { DataComponentsDemo } from "../app/components-data/DataComponentsDemo";
@@ -8,8 +10,6 @@ import { ConditionalComponentsDemoScreen } from "../app/components-conditional/C
 import DeeplyNestedTestEntityEdit from "../app/datatypes/deeply-nested-test-entity/DeeplyNestedTestEntityEdit";
 import CompositionO2OTestEntityList from "../app/datatypes/composition-o2o/CompositionO2OTestEntityList";
 import CompositionO2OTestEntityEditor from "../app/datatypes/composition-o2o/CompositionO2OTestEntityEditor";
-import CustomerList from "../app/templates/entity-management/CustomerList";
-import CustomerEditor from "../app/templates/entity-management/CustomerEditor";
 import { MenuDemoScreen } from "../app/menu/MenuDemoScreen";
 import CompositionO2MTestEntityList from "../app/datatypes/composition-o2m/CompositionO2MTestEntityList";
 import CompositionO2MTestEntityEditor from "../app/datatypes/composition-o2m/CompositionO2MTestEntityEditor";
@@ -20,11 +20,11 @@ import { Previews, ComponentPreview } from "@haulmont/react-ide-toolbox";
 import { JsxTreeDemoScreen } from "../app/tools/jsx-tree/JsxTreeDemoScreen";
 import { TimerComponentDemo } from "../app/components-conditional/TimerComponentDemo";
 import { UseEntityListDataDemo } from "../app/components-data/UseEntityListDataDemo";
-import {EntityPermAccessControlDemo} from "../app/components-conditional/EntityPermAccessControlDemo";
-import {AttrPermAccessControlDemo} from "../app/components-conditional/AttrPermAccessControlDemo";
+import { EntityPermAccessControlDemo } from "../app/components-conditional/EntityPermAccessControlDemo";
+import { AttrPermAccessControlDemo } from "../app/components-conditional/AttrPermAccessControlDemo";
 import CustomerMDList from "../app/templates/master-detail/CustomerMDList";
-import {CustomerCardsGrid} from "../app/templates/entity-cards-grid/CustomerCardsGrid";
-import {UseEntityEditorDataDemo} from "../app/components-data/UseEntityEditorDataDemo";
+import { CustomerCardsGrid } from "../app/templates/entity-cards-grid/CustomerCardsGrid";
+import { UseEntityEditorDataDemo } from "../app/components-data/UseEntityEditorDataDemo";
 
 export const ComponentPreviews = () => {
   return (
@@ -46,12 +46,6 @@ export const ComponentPreviews = () => {
       </ComponentPreview>
       <ComponentPreview path="/menuDemoScreen">
         <MenuDemoScreen />
-      </ComponentPreview>
-      <ComponentPreview path="/CustomerEditor">
-        <CustomerEditor />
-      </ComponentPreview>
-      <ComponentPreview path="/CustomerList">
-        <CustomerList />
       </ComponentPreview>
       <ComponentPreview path="/CompositionO2OTestEntityEditor">
         <CompositionO2OTestEntityEditor />
@@ -89,23 +83,26 @@ export const ComponentPreviews = () => {
       <ComponentPreview path="/blankTemplateDemo">
         <BlankTemplateDemo />
       </ComponentPreview>
-      <ComponentPreview
-        path="/PermissionComponentsDemo">
-        <EntityPermAccessControlDemo/>
+      <ComponentPreview path="/PermissionComponentsDemo">
+        <EntityPermAccessControlDemo />
       </ComponentPreview>
-      <ComponentPreview
-        path="/AttrPermAccessControlDemo">
-        <AttrPermAccessControlDemo/>
+      <ComponentPreview path="/AttrPermAccessControlDemo">
+        <AttrPermAccessControlDemo />
       </ComponentPreview>
-        <ComponentPreview path="/CustomerMDList">
-            <CustomerMDList/>
-        </ComponentPreview>
-        <ComponentPreview path="/CustomerCardsGrid">
-            <CustomerCardsGrid/>
-        </ComponentPreview>
-      <ComponentPreview
-        path="/UseEntityEditorDataDemo">
-        <UseEntityEditorDataDemo/>
+      <ComponentPreview path="/CustomerMDList">
+        <CustomerMDList />
+      </ComponentPreview>
+      <ComponentPreview path="/CustomerCardsGrid">
+        <CustomerCardsGrid />
+      </ComponentPreview>
+      <ComponentPreview path="/UseEntityEditorDataDemo">
+        <UseEntityEditorDataDemo />
+      </ComponentPreview>
+      <ComponentPreview path="/CustomerManagementEditor">
+        <CustomerManagementEditor />
+      </ComponentPreview>
+      <ComponentPreview path="/CustomerManagementList">
+        <CustomerManagementList />
       </ComponentPreview>
     </Previews>
   );
