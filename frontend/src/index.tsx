@@ -7,7 +7,8 @@ import { DevSupport } from "@haulmont/react-ide-toolbox";
 // import registerServiceWorker from './registerServiceWorker';
 import {
   JmixAppProvider,
-  initializeApolloClient
+  initializeApolloClient,
+  ScreensContext, Screens
 } from "@haulmont/jmix-react-core";
 import {I18nProvider, Modals} from "@haulmont/jmix-react-ui";
 import { initializeApp } from "@haulmont/jmix-rest";
@@ -48,6 +49,8 @@ const client = initializeApolloClient({
   localeStorageKey: "_jmixLocale"
 });
 
+const devScreens = new Screens();
+
 ReactDOM.render(
   <JmixAppProvider
     apolloClient={client}
@@ -67,7 +70,11 @@ ReactDOM.render(
         antdLocaleMapping={antdLocaleMapping}
       >
         <DevSupport
-          ComponentPreviews={<ComponentPreviews />}
+          ComponentPreviews={
+            <ScreensContext.Provider value={devScreens}>
+              <ComponentPreviews />
+            </ScreensContext.Provider>
+          }
           useInitialHook={useDevLogin}
         >
           <App />
