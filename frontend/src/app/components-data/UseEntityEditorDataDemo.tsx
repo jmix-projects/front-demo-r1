@@ -14,7 +14,8 @@ export const UseEntityEditorDataDemo = () => {
           name
         }
       }
-    `
+    `,
+    entityId: '0fd79ee4-be3e-9ecf-8450-068be04dc4a1'
   },);
 
   return (

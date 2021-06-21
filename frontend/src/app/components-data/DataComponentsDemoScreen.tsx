@@ -1,12 +1,13 @@
 import React from "react";
 import {UseEntityListDataDemo} from "./UseEntityListDataDemo";
-import {Card} from "antd";
+import {Card, Space} from "antd";
 import Text from "antd/es/typography/Text";
 import {registerScreen} from "@haulmont/jmix-react-ui";
+import {UseEntityEditorDataDemo} from "./UseEntityEditorDataDemo";
 
-export const DataComponentsDemo = () => {
+export const DataComponentsDemoScreen = () => {
   return (
-    <div>
+    <Space direction={"vertical"} style={{width: "100%"}}>
       <Card title={
         <>
           <Text code={true}>useEntityListData()</Text> demo
@@ -14,13 +15,20 @@ export const DataComponentsDemo = () => {
       }>
         <UseEntityListDataDemo/>
       </Card>
-    </div>
+      <Card title={
+        <>
+          <Text code={true}>useEntityEditorData()</Text> demo
+        </>
+      }>
+        <UseEntityEditorDataDemo/>
+      </Card>
+    </Space>
   )
 };
 
 registerScreen({
   screenId: "DataComponentsDemo",
-  component: DataComponentsDemo,
+  component: DataComponentsDemoScreen,
   caption: "Data Components Demo",
   menuOptions: {
     menuLink: "/data-components",

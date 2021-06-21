@@ -3,7 +3,7 @@ import CustomerManagementList from "../app/templates/entity-management/CustomerM
 import CustomerManagementEditor from "../app/templates/entity-management/CustomerManagementEditor";
 import { BlankTemplateDemo } from "../app/templates/blank/BlankTemplateDemo";
 import CustomerListDemo from "../app/templates/entity-list/CustomerList";
-import { DataComponentsDemo } from "../app/components-data/DataComponentsDemo";
+import { DataComponentsDemoScreen } from "../app/components-data/DataComponentsDemoScreen";
 import { CustomerCards } from "../app/templates/entity-cards/CustomerCards";
 import CustomerMasterDetail from "../app/templates/master-detail/CustomerMasterDetail";
 import { ConditionalComponentsDemoScreen } from "../app/components-conditional/ConditionalComponentsDemoScreen";
@@ -72,7 +72,7 @@ export const ComponentPreviews = () => {
         <CustomerCards />
       </ComponentPreview>
       <ComponentPreview path="/dataComponentsDemo">
-        <DataComponentsDemo />
+        <DataComponentsDemoScreen />
       </ComponentPreview>
       <ComponentPreview path="/UseEntityListDataDemo">
         <UseEntityListDataDemo />
