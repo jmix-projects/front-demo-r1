@@ -4,10 +4,11 @@ import {Button, Card, Space} from "antd";
 import {CheckOutlined, CloseCircleOutlined, WarningOutlined} from "@ant-design/icons";
 import {useScreens} from "@haulmont/jmix-react-core";
 import {NotificationType} from "@haulmont/jmix-react-ui";
+import {observer} from "mobx-react";
 
 const ROUTING_PATH = "/screenApiDemoScreen";
 
-export const ScreenApiDemoScreen = () => {
+export const ScreenApiDemoScreen = observer(() => {
 
   const screens = useScreens();
 
@@ -103,15 +104,15 @@ export const ScreenApiDemoScreen = () => {
         </Button>
       </Card>
       <Card title={'Screen API'}>
-        <Button onClick={() => screens.push({title: 'Title', content: 'Content'})}>
+        <Button onClick={() => screens.push({title: 'New Screen', content: 'Content'})}>
           Open Screen
         </Button>
         Currently Opened screens
-        {JSON.stringify(screens.screens)}
+        {JSON.stringify(screens.screens.map(screen => screen.title))}
       </Card>
     </Space>
   )
-};
+});
 
 registerScreen({
   component: ScreenApiDemoScreen,
