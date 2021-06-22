@@ -106,6 +106,11 @@ export const AppMenu = () => {
         <MenuItem screenId={"JsxTreeDemo"} caption={"menu.JsxTree"} />
       </SubMenuItem>
       <MenuItem
+        screenId={"ScreenApiDemoScreen"}
+        caption={"menu.ScreenApiDemoScreen"}
+        key={"9091872d-420e-47e2-b1d5-747c562ad137"}
+      />
+      <MenuItem
         screenId={"MenuDemo"}
         caption={"router.MenuDemoScreen"}
         key={"930a8778-0e7b-4556-a878-ea8b45fb6ea3"}

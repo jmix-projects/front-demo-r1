@@ -1,4 +1,5 @@
 import { VisualComponentsDemoScreen } from "../app/components-visual/VisualComponentsDemoScreen";
+import { ScreenApiDemoScreen } from "../app/screen-api/ScreenApiDemoScreen";
 import CustomerManagementList from "../app/templates/entity-management/CustomerManagementList";
 import CustomerManagementEditor from "../app/templates/entity-management/CustomerManagementEditor";
 import { BlankTemplateDemo } from "../app/templates/blank/BlankTemplateDemo";
@@ -103,6 +104,9 @@ export const ComponentPreviews = () => {
       </ComponentPreview>
       <ComponentPreview path="/CustomerManagementList">
         <CustomerManagementList />
+      </ComponentPreview>
+      <ComponentPreview path="/screenApiDemoScreen">
+        <ScreenApiDemoScreen />
       </ComponentPreview>
     </Previews>
   );
