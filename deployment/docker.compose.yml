@@ -17,9 +17,9 @@ services:
     networks:
       - frontend-demo-r1-net
 
-  frontend-r1-app:
+  frontend-r1-jmix-app:
     container_name: frontend-r1-app
-    image: docker.haulmont.com/platform/infrastructure/demo-cuba-apps-docker/demo-r1/frontend-demo-r1:testing
+    image: docker.haulmont.com/platform/infrastructure/demo-cuba-apps-docker/demo-r1/frontend-demo-r1-jmix:testing
     restart: always
     environment:
       RDS_HOSTNAME: frontend-r1-postgres-12
