@@ -2,9 +2,11 @@ import React from "react";
 import {modals, notifications, registerScreen} from "@haulmont/jmix-react-ui";
 import {Button, Card, Space} from "antd";
 import {CheckOutlined, CloseCircleOutlined, WarningOutlined} from "@ant-design/icons";
-import {useScreens} from "@haulmont/jmix-react-core";
+import {tabs, useScreens} from "@haulmont/jmix-react-core";
 import {NotificationType} from "@haulmont/jmix-react-ui";
 import {observer} from "mobx-react";
+import Paragraph from "antd/es/typography/Paragraph";
+import Title from "antd/es/typography/Title";
 
 const ROUTING_PATH = "/screenApiDemoScreen";
 
@@ -24,13 +26,13 @@ export const ScreenApiDemoScreen = observer(() => {
           }}>
             Show Notification
           </Button>
-          <Button icon={<CloseCircleOutlined />} onClick={() => {
+          <Button icon={<CloseCircleOutlined/>} onClick={() => {
             notifications.show({
               type: NotificationType.ERROR,
               title: 'Error',
               description: "Error Message"
             })
-          }} >
+          }}>
             Show Error
           </Button>
           <Button icon={<WarningOutlined/>} onClick={() => {
@@ -42,14 +44,14 @@ export const ScreenApiDemoScreen = observer(() => {
           }}>
             Show Warning
           </Button>
-          <Button icon={<CheckOutlined />} onClick={() => {
+          <Button icon={<CheckOutlined/>} onClick={() => {
             notifications.show({
               type: NotificationType.SUCCESS,
               title: 'Success',
-              description: "Warning Message",
+              description: "Warning Success",
             })
           }}>
-            Show Warning
+            Show Success
           </Button>
         </Space>
         <br/>
@@ -97,22 +99,35 @@ export const ScreenApiDemoScreen = observer(() => {
           modals.open({
             title: "Modal title",
             content: "Modal content",
-            onOk: () => {alert('OK Pressed')},
-            onCancel: () => {alert('Cancel Pressed')}
+            onOk: () => {
+              alert('OK Pressed')
+            },
+            onCancel: () => {
+              alert('Cancel Pressed')
+            }
           })}>
           Open modal
         </Button>
       </Card>
       <Card title={'Screen API'}>
-        <Button onClick={() => screens.push({title: 'New Screen', content: 'Content'})}>
-          Open Screen
-        </Button>
-        Currently Opened screens
-        {JSON.stringify(screens.screens.map(screen => screen.title))}
+        <Paragraph>
+          Screens opened in current tab
+          {JSON.stringify(screens.screens.map(screen => screen.title))}
+          <Button onClick={() => screens.push({title: 'New Screen', content: 'Content'})}>
+            Open screen in current tab
+          </Button>
+        </Paragraph>
+        <Title level={5}>
+          Opened tabs</Title>
+        <Paragraph>
+          : {JSON.stringify(tabs.tabs)}
+        </Paragraph>
+        <Button danger={true} icon={<CloseCircleOutlined/>} onClick={tabs.closeAll}>Close all tabs</Button>
       </Card>
     </Space>
   )
 });
+
 
 registerScreen({
   component: ScreenApiDemoScreen,
