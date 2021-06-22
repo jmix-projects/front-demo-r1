@@ -19,9 +19,11 @@ import {
   Palette
 } from "@haulmont/react-ide-toolbox";
 import * as React from "react";
+import {AntdPalette} from "./AntdPalette";
 
 export default () => (
   <Palette>
+    <AntdPalette/>
     <Category name="Layout">
       <Component name="Divider">
         <Variant>

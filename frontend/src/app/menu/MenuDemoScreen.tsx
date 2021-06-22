@@ -13,6 +13,7 @@ export const MenuDemoScreen = () => (
     <div style={{width: "300px"}}>
       <DemoMenuVertical/>
     </div>
+    <Title level={3}>Ant Menu</Title>
   </div>
 );
 
