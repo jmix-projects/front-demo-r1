@@ -29,6 +29,6 @@ services:
       RDS_PORT: 5432
       SPRING_PROFILES_ACTIVE: docker
     ports:
-      - 8081:8080
+      - 8082:8080
     networks:
       - frontend-demo-r1-net
