@@ -9,7 +9,7 @@ services:
   frontend-r1-postgres-12:
     container_name: frontend-r1-postgres-12
     image: postgres:12
-    restart: always
+    restart: unless-stopped
     environment:
       POSTGRES_PASSWORD: ${DB2_PASSWORD}
       POSTGRES_USER: ${DB2_USERNAME}
@@ -20,7 +20,7 @@ services:
   frontend-r1-jmix-app:
     container_name: frontend-r1-jmix-app
     image: docker.haulmont.com/platform/infrastructure/demo-cuba-apps-docker/demo-r1/frontend-demo-r1-jmix:testing
-    restart: always
+    restart: unless-stopped
     environment:
       RDS_HOSTNAME: frontend-r1-postgres-12
       RDS_PASSWORD: ${DB2_PASSWORD}
@@ -36,7 +36,7 @@ services:
   frontend-r1-front:
     container_name: frontend-demo-r1-front
     image: docker.haulmont.com/platform/infrastructure/demo-cuba-apps-docker/demo-r1/frontend-demo-r1-front:testing
-    restart: always
+    restart: unless-stopped
     ports:
       - 83:80
     networks:
