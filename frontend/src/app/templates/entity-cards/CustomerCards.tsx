@@ -1,19 +1,30 @@
 import React from "react";
-import {observer} from "mobx-react";
-import {Card} from "antd";
-import {Customer} from "../../../jmix/entities/Customer";
-import {getFields} from "@haulmont/jmix-react-core";
+import { observer } from "mobx-react";
+import {
+  DeleteOutlined,
+  EditOutlined,
+  PlusOutlined,
+  LeftOutlined
+} from "@ant-design/icons";
+import { Button, Card, Tooltip } from "antd";
+import {
+  EntityInstance,
+  getFields,
+  EntityPermAccessControl,
+  toIdString
+} from "@haulmont/jmix-react-core";
 import {
   EntityProperty,
   Paging,
-  registerEntityList,
-  registerScreen,
-  RetryDialog,
   Spinner,
-  useEntityList
+  RetryDialog,
+  useEntityList,
+  EntityListProps,
+  registerEntityList, registerScreen
 } from "@haulmont/jmix-react-ui";
-import {getStringId} from "@haulmont/jmix-rest";
-import {gql} from "@apollo/client";
+import { Customer } from "../../../jmix/entities/Customer";
+import { FormattedMessage } from "react-intl";
+import { gql } from "@apollo/client";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerCards";
@@ -40,16 +51,26 @@ const CUSTOMER_LIST = gql`
   }
 `;
 
-export const CustomerCards = observer(() => {
+const CustomerCards = observer((props: EntityListProps<Customer>) => {
+  const { entityList, onEntityListChange } = props;
+
   const {
+    items,
+    count,
     executeListQuery,
-    listQueryResult: { loading, error, data },
+    listQueryResult: { loading, error },
+    handleDeleteBtnClick,
+    handleCreateBtnClick,
+    handleEditBtnClick,
     handlePaginationChange,
+    goToParentScreen,
     entityListState
   } = useEntityList<Customer>({
     listQuery: CUSTOMER_LIST,
     entityName: ENTITY_NAME,
-    routingPath: ROUTING_PATH
+    routingPath: ROUTING_PATH,
+    entityList,
+    onEntityListChange
   });
 
   if (error != null) {
@@ -57,24 +78,81 @@ export const CustomerCards = observer(() => {
     return <RetryDialog onRetry={executeListQuery} />;
   }
 
-  if (loading || data == null) {
+  if (loading || items == null) {
     return <Spinner />;
   }
 
-  const dataSource = data?.CustomerList ?? [];
-  const pagesTotal = data?.CustomerCount ?? 0;
-
   return (
     <div className="narrow-layout">
-      {dataSource.map(e => (
+      <div style={{ marginBottom: "12px" }}>
+        {entityList != null && (
+          <Tooltip title={<FormattedMessage id="common.back" />}>
+            <Button
+              htmlType="button"
+              style={{ margin: "0 12px 12px 0" }}
+              icon={<LeftOutlined />}
+              onClick={goToParentScreen}
+              key="back"
+              type="default"
+              shape="circle"
+            />
+          </Tooltip>
+        )}
+
+        <EntityPermAccessControl entityName={ENTITY_NAME} operation="create">
+          <span>
+            <Button
+              htmlType="button"
+              type="primary"
+              icon={<PlusOutlined />}
+              onClick={handleCreateBtnClick}
+            >
+              <span>
+                <FormattedMessage id="common.create" />
+              </span>
+            </Button>
+          </span>
+        </EntityPermAccessControl>
+      </div>
+
+      {items == null || items.length === 0 ? (
+        <p>
+          <FormattedMessage id="management.browser.noItems" />
+        </p>
+      ) : null}
+      {items.map((e: EntityInstance<Customer>) => (
         <Card
           title={e._instanceName}
-          key={e.id ? getStringId(e.id) : undefined}
+          key={e.id ? toIdString(e.id) : undefined}
           style={{ marginBottom: "12px" }}
+          actions={[
+            <EntityPermAccessControl
+              entityName={ENTITY_NAME}
+              operation="delete"
+            >
+              <DeleteOutlined
+                key="delete"
+                onClick={(event?: React.MouseEvent) =>
+                  handleDeleteBtnClick(event, e.id)
+                }
+              />
+            </EntityPermAccessControl>,
+            <EntityPermAccessControl
+              entityName={ENTITY_NAME}
+              operation="update"
+            >
+              <EditOutlined
+                key="edit"
+                onClick={(event?: React.MouseEvent) =>
+                  handleEditBtnClick(event, e.id)
+                }
+              />
+            </EntityPermAccessControl>
+          ]}
         >
           {getFields(e).map(p => (
             <EntityProperty
-              entityName={Customer.NAME}
+              entityName={ENTITY_NAME}
               propertyName={p}
               value={e[p]}
               key={p}
@@ -87,7 +165,7 @@ export const CustomerCards = observer(() => {
         <Paging
           paginationConfig={entityListState.pagination ?? {}}
           onPagingChange={handlePaginationChange}
-          total={pagesTotal}
+          total={count}
         />
       </div>
     </div>
@@ -102,4 +180,6 @@ registerScreen({
     pathPattern: ROUTING_PATH,
     menuLink: ROUTING_PATH
   }
-})
+});
+
+export default CustomerCards;

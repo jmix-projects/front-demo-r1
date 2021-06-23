@@ -8,7 +8,6 @@ export class User {
   lastName?: string | null;
   email?: string | null;
   enabled?: boolean | null;
-  authorities?: any | null;
 }
 export type UserViewName = "_base" | "_instance_name" | "_local";
 export type UserView<V extends UserViewName> = V extends "_base"

@@ -1,11 +1,11 @@
 import { VisualComponentsDemoScreen } from "../app/components-visual/VisualComponentsDemoScreen";
+import CustomerCards from "../app/templates/entity-cards/CustomerCards";
 import { ScreenApiDemoScreen } from "../app/screen-api/ScreenApiDemoScreen";
 import CustomerManagementList from "../app/templates/entity-management/CustomerManagementList";
 import CustomerManagementEditor from "../app/templates/entity-management/CustomerManagementEditor";
 import { BlankTemplateDemo } from "../app/templates/blank/BlankTemplateDemo";
 import CustomerListDemo from "../app/templates/entity-list/CustomerList";
 import { DataComponentsDemoScreen } from "../app/components-data/DataComponentsDemoScreen";
-import { CustomerCards } from "../app/templates/entity-cards/CustomerCards";
 import CustomerMasterDetail from "../app/templates/master-detail/CustomerMasterDetail";
 import { ConditionalComponentsDemoScreen } from "../app/components-conditional/ConditionalComponentsDemoScreen";
 import DeeplyNestedTestEntityEdit from "../app/datatypes/deeply-nested-test-entity/DeeplyNestedTestEntityEdit";
@@ -107,6 +107,9 @@ export const ComponentPreviews = () => {
       </ComponentPreview>
       <ComponentPreview path="/screenApiDemoScreen">
         <ScreenApiDemoScreen />
+      </ComponentPreview>
+      <ComponentPreview path="/CustomerCards">
+        <CustomerCards />
       </ComponentPreview>
     </Previews>
   );

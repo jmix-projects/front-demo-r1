@@ -107,20 +107,6 @@
           "readOnly": false,
           "mandatory": false,
           "transient": false
-        },
-        {
-          "name": "authorities",
-          "type": {
-            "packageName": "java.util.Collection<? extends org.springframework.security.core",
-            "className": "GrantedAuthority>",
-            "fqn": "java.util.Collection<? extends org.springframework.security.core.GrantedAuthority>",
-            "label": "GrantedAuthority>"
-          },
-          "mappingType": "DATATYPE",
-          "cardinality": "ONE_TO_MANY",
-          "readOnly": false,
-          "mandatory": false,
-          "transient": true
         }
       ]
     },

@@ -1,3 +1,4 @@
+import "./app/templates/entity-cards/CustomerCards";
 import "./app/screen-api/ScreenApiDemoScreen";
 import "./app/templates/entity-management/CustomerManagementList";
 import "./app/templates/entity-management/CustomerManagementEditor";
