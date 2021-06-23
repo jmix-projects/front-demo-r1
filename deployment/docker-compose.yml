@@ -38,4 +38,6 @@ services:
     image: docker.haulmont.com/platform/infrastructure/demo-cuba-apps-docker/demo-r1/frontend-demo-r1-front:testing
     restart: always
     ports:
-    - 81:80
+      - 83:80
+    networks:
+      - frontend-demo-r1-net
