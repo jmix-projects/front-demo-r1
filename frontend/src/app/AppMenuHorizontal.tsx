@@ -1,13 +1,13 @@
 import React from "react";
 import { MenuProps } from "antd";
-import { MenuItem, SubMenuItem, VerticalMenu } from "@haulmont/jmix-react-ui";
+import { MenuItem, SubMenuItem, HorizontalMenu } from "@haulmont/jmix-react-ui";
 import { BarsOutlined, HomeOutlined } from "@ant-design/icons";
 import { tabs } from "@haulmont/jmix-react-core";
 export interface AppMenuProps extends MenuProps {}
 
-export const AppMenu = (props: AppMenuProps) => {
+export const AppMenHorizontal = (props: AppMenuProps) => {
   return (
-    <VerticalMenu {...props}>
+    <HorizontalMenu {...props}>
       <MenuItem
         onClick={tabs.closeAll}
         icon={<HomeOutlined />}
@@ -117,6 +117,6 @@ export const AppMenu = (props: AppMenuProps) => {
         caption={"router.MenuDemoScreen"}
         key={"930a8778-0e7b-4556-a878-ea8b45fb6ea3"}
       />
-    </VerticalMenu>
+    </HorizontalMenu>
   );
 };

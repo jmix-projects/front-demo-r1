@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Layout } from "antd";
 import { observer } from "mobx-react";
 import Login from "./login/Login";
@@ -9,6 +9,7 @@ import { MultiTabs } from "@haulmont/jmix-react-ui";
 import { useMainStore, tabs, Router } from "@haulmont/jmix-react-core";
 import CenteredLoader from "./CenteredLoader";
 import { AppMenu } from "./AppMenu";
+import { AppMenHorizontal } from "./AppMenuHorizontal";
 import "../routing";
 import "./App.css";
 
@@ -19,7 +20,11 @@ const routes = {
   "/:entityName/:entityId?": <MultiTabs />
 };
 
+export let setGlobalMenuType:  React.Dispatch<React.SetStateAction<string>>;
+
 const App = observer(() => {
+  const [menuType, setMenuType] = useState<string>('vertical');
+  setGlobalMenuType = setMenuType
   const mainStore = useMainStore();
   const { initialized, locale, loginRequired } = mainStore;
 
@@ -38,17 +43,21 @@ const App = observer(() => {
   return (
     <Layout className="main-layout">
       <Layout.Header>
-        <AppHeader />
+        <AppHeader>
+          {menuType === "horizontal" && <AppMenHorizontal theme="dark"/>}
+        </AppHeader>
       </Layout.Header>
       <Layout className="layout-container">
-        <Layout.Sider
-          width={200}
-          breakpoint="sm"
-          collapsedWidth={0}
-          className="layout-sider"
-        >
-          <AppMenu />
-        </Layout.Sider>
+        {menuType === "vertical" && (
+            <Layout.Sider
+              width={200}
+              breakpoint="sm"
+              collapsedWidth={0}
+              className="layout-sider"
+            >
+              <AppMenu />
+            </Layout.Sider>
+        ) }
         <Layout className="layout-content">
           <Layout.Content>
             <Router global routes={routes} />
