@@ -20,11 +20,15 @@ const routes = {
   "/:entityName/:entityId?": <MultiTabs />
 };
 
-export let setGlobalMenuType:  React.Dispatch<React.SetStateAction<string>>;
+export let globalMenuType: {
+  setMenuType: React.Dispatch<React.SetStateAction<string>>,
+  menuType: string
+};
 
 const App = observer(() => {
   const [menuType, setMenuType] = useState<string>('vertical');
-  setGlobalMenuType = setMenuType
+  globalMenuType = {menuType, setMenuType}
+
   const mainStore = useMainStore();
   const { initialized, locale, loginRequired } = mainStore;
 

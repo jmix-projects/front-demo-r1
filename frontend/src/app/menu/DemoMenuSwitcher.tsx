@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react"
-import {setGlobalMenuType} from "../App";
+import {globalMenuType} from "../App";
 import {Space, Radio} from "antd";
 
 export const DemoMenuSwitcher = () => {
-  const [menuType, setMenuType] = useState<string>('vertical');
+  const [menuType, setMenuType] = useState<string>(globalMenuType?.menuType);
   useEffect(() => {
-    setGlobalMenuType?.(menuType);
+    globalMenuType?.setMenuType(menuType);
   }, [menuType]);
 
   return (
