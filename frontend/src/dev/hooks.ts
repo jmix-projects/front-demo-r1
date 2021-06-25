@@ -11,7 +11,7 @@ export const useDevLogin: () => InitialHookStatus = () => {
 
   useEffect(() => {
     const login: string = process.env.REACT_APP_DEVMODE_LOGIN ?? "admin";
-    const password: string = process.env.REACT_APP_DEVMODE_PASSWORD ?? "admin";
+    const password: string = process.env.REACT_APP_DEVMODE_PASSWORD ?? "password";
     mainStore
       .login(login, password)
       .then(() => {

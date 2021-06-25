@@ -7,6 +7,7 @@ import {NotificationType} from "@haulmont/jmix-react-ui";
 import {observer} from "mobx-react";
 import Paragraph from "antd/es/typography/Paragraph";
 import Title from "antd/es/typography/Title";
+import Link from "antd/lib/typography/Link";
 
 const ROUTING_PATH = "/screenApiDemoScreen";
 
@@ -123,6 +124,27 @@ export const ScreenApiDemoScreen = observer(() => {
           : {JSON.stringify(tabs.tabs)}
         </Paragraph>
         <Button danger={true} icon={<CloseCircleOutlined/>} onClick={tabs.closeAll}>Close all tabs</Button>
+        <br/>
+        <a target={'_blank'} href={'https://github.com/jmix-projects/front-demo-r1/blob/main/frontend/src/app/screen-api/ScreenApiDemoScreen.tsx#L132'}>
+          registerScreen()
+        </a>
+      </Card>
+      <Card title={'Entity Browser / Editor'}>
+        <a target={'_blank'} href={'https://github.com/jmix-projects/front-demo-r1/blob/main/frontend/src/app/templates/entity-management/CustomerManagementEditor.tsx#L64'} >
+          useEntityEditor()
+        </a>
+        <br/>
+        <a target={'_blank'} href={'https://github.com/jmix-projects/front-demo-r1/blob/main/frontend/src/app/templates/entity-management/CustomerManagementList.tsx#L68'}>
+          useEntityList()
+        </a>
+        <br/>
+        <a target={'_blank'} href={'https://github.com/jmix-projects/front-demo-r1/blob/main/frontend/src/app/templates/entity-management/CustomerManagementEditor.tsx#L130'}>
+          registerEntityEditor()
+        </a>
+        <br/>
+        <a target={'_blank'} href={'https://github.com/jmix-projects/front-demo-r1/blob/main/frontend/src/app/templates/entity-management/CustomerManagementList.tsx#L175'}>
+          registerEntityList()
+        </a>
       </Card>
     </Space>
   )
