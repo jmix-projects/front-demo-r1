@@ -27,6 +27,8 @@ services:
       RDS_USERNAME: ${DB2_USERNAME}
       RDS_DB_NAME: ${DB2_NAME}
       RDS_PORT: 5432
+      JMIX_ADMIN: ${JMIX_ADMIN}
+      JMIX_PASSWORD: ${JMIX_PASSWORD}
       SPRING_PROFILES_ACTIVE: docker
     ports:
       - 8083:8080

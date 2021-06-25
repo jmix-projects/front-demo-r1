@@ -1,12 +1,12 @@
 plugins {
-    id 'io.jmix' version '1.0.0-M3'
+    id 'io.jmix' version '1.0.0'
     id 'java'
 }
 
 apply plugin: 'org.springframework.boot'
 
 jmix {
-    bomVersion = '1.0.0-SNAPSHOT' 
+    bomVersion = '1.0.0-SNAPSHOT'
 }
 
 group = 'com.company'
@@ -14,10 +14,10 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
-    mavenCentral() 
+    mavenCentral()
     maven {
         url 'https://nexus.jmix.io/repository/public'
-    } 
+    }
 }
 
 dependencies {
