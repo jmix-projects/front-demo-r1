@@ -14,4 +14,8 @@
         <sqlFile path="customers.sql" relativeToChangelogFile="true" stripComments="true"/>
     </changeSet>
 
+    <changeSet id="orders" author="admin">
+        <sqlFile path="orders.sql" relativeToChangelogFile="true" stripComments="true"/>
+    </changeSet>
+
 </databaseChangeLog>

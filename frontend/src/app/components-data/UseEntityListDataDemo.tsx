@@ -10,13 +10,14 @@ export const UseEntityListDataDemo = () => {
 
   const {items, listQueryResult: {loading}, executeListQuery} = useEntityListData<Order>({
     listQuery: gql`
-      query OrderList {
+      query OrderList($offset: Int) {
         Order_List (
-          filter:{amount: [{_gte: 10}]}
-          offset: 0,
+          filter:{amount: {_gte: "10"}}
+          offset: $offset,
           limit: 10
         ) {
           id
+          number
           amount
           date
           lines {
@@ -47,7 +48,11 @@ export const UseEntityListDataDemo = () => {
           Reload
         </Button>
       </Space>
-      <List dataSource={items}/>
+      <List dataSource={items} renderItem={(item) => (
+          <div>
+            Number: {item.number} / Amount: {item.amount}
+          </div>
+      )}/>
     </div>
   )
 }
