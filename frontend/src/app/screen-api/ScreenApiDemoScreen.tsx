@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useCallback, useState} from "react";
 import {modals, notifications, registerScreen} from "@haulmont/jmix-react-ui";
-import {Button, Card, Space} from "antd";
+import {Button, Card, Radio, RadioChangeEvent, Space} from "antd";
 import {CheckOutlined, CloseCircleOutlined, WarningOutlined} from "@ant-design/icons";
-import {tabs, useScreens} from "@haulmont/jmix-react-core";
+import {ContentDisplayMode, tabs, useMainStore, useScreens} from "@haulmont/jmix-react-core";
 import {NotificationType} from "@haulmont/jmix-react-ui";
 import {observer} from "mobx-react";
 import Paragraph from "antd/es/typography/Paragraph";
@@ -14,6 +14,16 @@ const ROUTING_PATH = "/screenApiDemoScreen";
 export const ScreenApiDemoScreen = observer(() => {
 
   const screens = useScreens();
+  const mainStore = useMainStore();
+
+  const [contentDisplayMode, setContentDisplayMode] = useState(mainStore.contentDisplayMode);
+
+  const handleContentDisplayModeChange = useCallback((e: RadioChangeEvent) => {
+    if (Object.values(ContentDisplayMode).includes(e.target.value)) {
+      mainStore.contentDisplayMode = e.target.value;
+      setContentDisplayMode(mainStore.contentDisplayMode);
+    }
+  }, [mainStore, setContentDisplayMode]);
 
   return (
     <Space direction={"vertical"} style={{width: "100%"}}>
@@ -145,6 +155,22 @@ export const ScreenApiDemoScreen = observer(() => {
         <a target={'_blank'} href={'https://github.com/jmix-projects/front-demo-r1/blob/main/frontend/src/app/templates/entity-management/CustomerManagementList.tsx#L175'}>
           registerEntityList()
         </a>
+      </Card>
+      <Card title={'Content Display Mode'}>
+        <div><code>ContentDisplayMode:</code></div>
+        <Radio.Group onChange={handleContentDisplayModeChange} value={contentDisplayMode}>
+          <Space direction='vertical'>
+            <Radio value={ContentDisplayMode.ActivateExistingTab}>
+              <code>ContentDisplayMode.ActivateExistingTab</code>
+            </Radio>
+            <Radio value={ContentDisplayMode.AlwaysNewTab}>
+              <code>ContentDisplayMode.AlwaysNewTab</code>
+            </Radio>
+            <Radio value={ContentDisplayMode.NoTabs}>
+              <code>ContentDisplayMode.NoTabs</code>
+            </Radio>
+          </Space>
+        </Radio.Group>
       </Card>
     </Space>
   )

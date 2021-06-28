@@ -9,7 +9,7 @@ export const AppMenu = (props: AppMenuProps) => {
   return (
     <VerticalMenu {...props}>
       <MenuItem
-        onClick={tabs.closeAll}
+        screenId={'HomePage'}
         icon={<HomeOutlined />}
         caption={"router.home"}
         key={"home"}
