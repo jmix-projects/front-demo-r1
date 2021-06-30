@@ -95,6 +95,19 @@ public class FrontdemoApplication {
 
                 dataManager.save(newUser, assignment);
             }
+
+
+            User restrictedUser = dataManager.load(User.class)
+                    .condition(PropertyCondition.equal("username", "jmix-demo-restricted"))
+                    .optional()
+                    .orElse(null);
+
+            if (restrictedUser != null) {
+                restrictedUser.setPassword(properties.getRestrictedPassword());
+                dataManager.save(restrictedUser);
+            }
+
+
             return null;
         });
     }
