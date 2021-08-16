@@ -3,7 +3,7 @@ import { Button, Space, Modal } from "antd";
 import React, { useCallback } from "react";
 import { observer } from "mobx-react";
 import "./AppHeader.css";
-import { useMainStore } from "@haulmont/jmix-react-core";
+import {redirect, tabs, useMainStore} from "@haulmont/jmix-react-core";
 import { LanguageSwitcher } from "../../i18n/LanguageSwitcher";
 import { useIntl } from "react-intl";
 import JmixLightIcon from "../icons/JmixLightIcon";
@@ -17,7 +17,12 @@ const AppHeader = observer(({ children }: { children?: React.ReactNode }) => {
       title: intl.formatMessage({ id: "header.logout.areYouSure" }),
       okText: intl.formatMessage({ id: "header.logout.ok" }),
       cancelText: intl.formatMessage({ id: "header.logout.cancel" }),
-      onOk: () => mainStore.logout()
+      onOk: () => {
+        mainStore.logout().then(() => {
+          tabs.closeAll();
+          redirect('/');
+        })
+      }
     });
   }, [mainStore, intl]);
 
