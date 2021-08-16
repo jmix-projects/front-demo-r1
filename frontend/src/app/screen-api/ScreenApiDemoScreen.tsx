@@ -135,7 +135,7 @@ export const ScreenApiDemoScreen = observer(() => {
         </Paragraph>
         <Button danger={true} icon={<CloseCircleOutlined/>} onClick={tabs.closeAll}>Close all tabs</Button>
         <br/>
-        <a target={'_blank'} href={'https://github.com/jmix-projects/front-demo-r1/blob/main/frontend/src/app/screen-api/ScreenApiDemoScreen.tsx#L132'}>
+        <a target={'_blank'} href={'https://github.com/jmix-projects/front-demo-r1/blob/main/frontend/src/app/screen-api/ScreenApiDemoScreen.tsx#L180'}>
           registerScreen()
         </a>
       </Card>
