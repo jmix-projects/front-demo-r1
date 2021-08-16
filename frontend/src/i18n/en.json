@@ -30,6 +30,7 @@
   "menu.CustomerList": "Entity Browser List",
   "router.CustomerEditor": "Customer Editor",
   "router.MenuDemoScreen": "Menu",
+  "screen.home": "Home",
   "router.CompositionO2MTestEntityList": "Composition O2M",
   "router.CompositionO2MTestEntityEditor": "Composition O2M",
   "router.CompositionO2OTestEntityList": "Composition O2O",
