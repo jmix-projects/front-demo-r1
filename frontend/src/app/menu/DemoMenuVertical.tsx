@@ -37,26 +37,26 @@ export const DemoMenuVertical = () => {
               <MenuItem caption={"Samsung"}
                         icon={<BarsOutlined />}
                         key={'horizontal-samsung'}/>
-              <SubMenuItem caption={"Notebooks"} key={'horizontal-notebooks'}>
-                <SubMenuItem caption={"Windows"} key={'horizontal-windows'}>
-                  <MenuItem caption={"Asus"}
-                            icon={<BarsOutlined/>}
-                            key={'horizontal-asus'}/>
+            </SubMenuItem>
+          </SubMenuItem>
+          <SubMenuItem caption={"Notebooks"} key={'horizontal-notebooks'}>
+            <SubMenuItem caption={"Windows"} key={'horizontal-windows'}>
+              <MenuItem caption={"Asus"}
+                        icon={<BarsOutlined/>}
+                        key={'horizontal-asus'}/>
 
-                  <MenuItem caption={"Msi"}
-                            icon={<BarsOutlined/>}
-                            key={'horizontal-msi'}/>
-                </SubMenuItem>
-                <SubMenuItem caption={"MacOS"} key={'horizontal-macos'}>
-                  <MenuItem caption={"MacbookAir"}
-                            icon={<BarsOutlined/>}
-                            key={'horizontal-air'}/>
-                  <MenuItem caption={"MacbookPro"}
-                            icon={<BarsOutlined/>}
-                            key={'horizontal-pro'}/>
+              <MenuItem caption={"Msi"}
+                        icon={<BarsOutlined/>}
+                        key={'horizontal-msi'}/>
+            </SubMenuItem>
+            <SubMenuItem caption={"MacOS"} key={'horizontal-macos'}>
+              <MenuItem caption={"MacbookAir"}
+                        icon={<BarsOutlined/>}
+                        key={'horizontal-air'}/>
+              <MenuItem caption={"MacbookPro"}
+                        icon={<BarsOutlined/>}
+                        key={'horizontal-pro'}/>
 
-                </SubMenuItem>
-              </SubMenuItem>
             </SubMenuItem>
           </SubMenuItem>
         </SubMenuItem>
