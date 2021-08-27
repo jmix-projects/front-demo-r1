@@ -23,4 +23,4 @@ task deployFrontend(type: Copy, dependsOn: buildFrontend) {
 }
 
 // Uncomment the line below to build frontend along with the Spring Boot app
-//rootProject.classes.dependsOn(deployFrontend)
+rootProject.classes.dependsOn(deployFrontend)

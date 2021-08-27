@@ -22,6 +22,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.env.Environment;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.sql.DataSource;
 import java.util.List;
@@ -110,5 +112,19 @@ public class FrontdemoApplication {
 
             return null;
         });
+    }
+
+    @Bean
+    public WebMvcConfigurer forwardFrontendToIndex() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addViewControllers(ViewControllerRegistry registry) {
+                registry.addViewController("/front").setViewName("forward:/front/index.html");
+                registry.addViewController("/front/{x:[\\w\\-]+}")
+                        .setViewName("forward:/front/index.html");
+                registry.addViewController("/front/{x:^(?!oauth$).*$}/**/{y:[\\w\\-]+}")
+                        .setViewName("forward:/front/index.html");
+            }
+        };
     }
 }
