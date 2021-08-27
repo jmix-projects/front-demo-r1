@@ -19,8 +19,8 @@ task buildFrontend(type: NpmTask, dependsOn: npmInstall) {
 
 task deployFrontend(type: Copy, dependsOn: buildFrontend) {
     from "build"
-    into "$rootDir/build/resources/main/static/front"
+    into "$rootDir/build/resources/main/static/"
 }
 
 // Uncomment the line below to build frontend along with the Spring Boot app
-//rootProject.classes.dependsOn(deployFrontend)
+rootProject.classes.dependsOn(deployFrontend)

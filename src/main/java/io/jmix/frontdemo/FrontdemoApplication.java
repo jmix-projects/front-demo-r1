@@ -13,15 +13,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.env.Environment;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.sql.DataSource;
 import java.util.List;
@@ -30,26 +32,26 @@ import java.util.List;
 @SpringBootApplication
 public class FrontdemoApplication {
 
-	@Autowired
-	private Environment environment;
+    @Autowired
+    private Environment environment;
 
-	public static void main(String[] args) {
-		SpringApplication.run(FrontdemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(FrontdemoApplication.class, args);
+    }
 
-	@Bean
-	@Primary
-	@ConfigurationProperties("main.datasource")
-	DataSourceProperties dataSourceProperties() {
-		return new DataSourceProperties();
-	}
+    @Bean
+    @Primary
+    @ConfigurationProperties("main.datasource")
+    DataSourceProperties dataSourceProperties() {
+        return new DataSourceProperties();
+    }
 
-	@Bean
-	@Primary
-	@ConfigurationProperties("main.datasource.hikari")
-	DataSource dataSource(DataSourceProperties dataSourceProperties) {
-		return dataSourceProperties.initializeDataSourceBuilder().build();
-	}
+    @Bean
+    @Primary
+    @ConfigurationProperties("main.datasource.hikari")
+    DataSource dataSource(DataSourceProperties dataSourceProperties) {
+        return dataSourceProperties.initializeDataSourceBuilder().build();
+    }
 
     @EventListener
     public void printApplicationUrl(ApplicationStartedEvent event) {
@@ -110,5 +112,19 @@ public class FrontdemoApplication {
 
             return null;
         });
+    }
+
+    @Bean
+    public WebMvcConfigurer forwardFrontendToIndex() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addViewControllers(ViewControllerRegistry registry) {
+                registry.addViewController("/").setViewName("forward:/index.html");
+                registry.addViewController("/{x:[\\w\\-]+}")
+                        .setViewName("forward:/index.html");
+                registry.addViewController("/{x:^(?!oauth$).*$}/**/{y:[\\w\\-]+}")
+                        .setViewName("forward:/index.html");
+            }
+        };
     }
 }
